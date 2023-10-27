@@ -1,0 +1,4 @@
+maptlotlib
+scipy
+numpy
+tkinter
