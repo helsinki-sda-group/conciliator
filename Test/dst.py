@@ -5,8 +5,8 @@ from deep_sea_treasure import DeepSeaTreasureV0
 import pygame
 import pandas as pd
 from deep_sea_treasure import FuelWrapper
-import Conciliator 
-import Approximator
+import conciliator_v2 as con 
+import approximator_v1 as app
     
 def init_dst():
     # Make sure experiment are reproducible, so people can use the exact same versions
@@ -18,7 +18,7 @@ def init_dst():
     ))
     return dst
 
-def run(human):
+def run(human, priority, preference):
     dst = init_dst()
 
     dst.render()
@@ -48,7 +48,7 @@ def run(human):
                 if event.type == pygame.QUIT:
                     stop = True
         else:
-            action = next_con_action(con.preference)
+            action = next_con_action(preference)
 
         _, reward, done, debug_info = dst.step(action)
         time_reward += int(reward[1])
@@ -73,19 +73,17 @@ def print_results(received, preferred):
     print(df)
 
 def main():
-    con = Conciliator(eps=1e-16, R = np.array([2,1,6]))
-    priority, preference = con.priority, con.preference
+    conc = con.Conciliator(eps=1e-16, R = np.array([2,1,6]))
+    #appr = app()
+    priority, preference = conc.priority, conc.preference
     print(priority)
     print(preference)
-    human=True; approx=False; run_test=False
+    human=True; run_test=False
     thresh = 0; train_iters = 10e+2; test_iters = 10
     if human:
-        run(human)
-    if approx:
-        run_approximators(thresh, train_iters)
-        run_approximators(thresh, test_iters)
+        run(human, priority, preference)
     if run_test:
-        run(run_test)
+        run(run_test, priority, preference)
 
 if __name__ == "__main__":
     main()
