@@ -27,7 +27,6 @@ def run(human, priority, preference):
     time_reward: int = 0
 
     while not stop:
-        # TODO: what is the action vector about?
         if human:
             events = pygame.event.get()
             action = (np.asarray([0, 0, 0, 1, 0, 0, 0]), np.asarray([0, 0, 0, 1, 0, 0, 0]))
@@ -54,7 +53,8 @@ def run(human, priority, preference):
         time_reward += int(reward[1])
         
         if done:
-            print_results(received=reward, preferred=preference)
+            received_rews = np.asarray([int(reward[0]), time_reward, int(reward[2])])
+            print_results(received=received_rews, preferred=preference)
             time_reward = 0
         
         if not stop:
@@ -73,13 +73,13 @@ def print_results(received, preferred):
     print(df)
 
 def main():
-    conc = con.Conciliator(eps=1e-16, R = np.array([2,1,6]))
+    conc = con.Conciliator(eps=1e-16, R = np.array([30,1000,18]))
     #appr = app()
     priority, preference = conc.priority, conc.preference
     print(priority)
     print(preference)
     human=True; run_test=False
-    thresh = 0; train_iters = 10e+2; test_iters = 10
+    thresh = 10e-2; train_iters = 10e+2; test_iters = 10
     if human:
         run(human, priority, preference)
     if run_test:
