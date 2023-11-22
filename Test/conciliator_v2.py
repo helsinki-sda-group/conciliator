@@ -28,6 +28,9 @@ class Conciliator():
             self.priority=priority
         self.preference = np.zeros(len(self.R))
         self.transfer = np.zeros(len(self.R))
+        self.scalarisation = None
+        self.pref_history = None
+        self.priority_history = None
 
         # Set the figure
         self.root = tk.Tk()
@@ -125,20 +128,40 @@ class Conciliator():
         self.update_fig()
 
     def get_sliders(self, set_eq=False):
+        """A function to set new values to sliders
+        Args:
+            self (self): a Conciliator object
+            set_eq ([float], optional): whether to set the sliders to equal
+        """    
         for i in range(len(self.sliders)):
             if set_eq:
                 self.sliders[i].set(50)
             self.slider_values[i] = self.sliders[i].get()
 
     def remove_bars(self):
+        """A function to remove the bars from the figure when performing a reset
+
+        Args:
+            self (self): a Conciliator object
+        """    
         self.bars[0].remove()
         self.bars[1].remove()
 
     def update_fig(self):
+        """A function to update the figure
+
+        Args:
+            self (self): a Conciliator object
+        """    
         self.fig.canvas.draw()
         self.root.update()
 
     def update_transfer(self):
+        """A function to update the transfer vector
+
+        Args:
+            self (self): a Conciliator object
+        """    
         self.optimize_transfer()
         pos = self.transfer >= 0
         neg = self.transfer < 0
@@ -147,6 +170,11 @@ class Conciliator():
         self.bars = [bar1, bar2]
 
     def reset(self, event):
+        """A function to reset the Conciliator to the starting state
+
+        Args:
+            self (self): a Conciliator object
+        """  
         self.get_sliders(set_eq=True)
         self.remove_bars()
         self.priority = np.zeros(len(self.R))
@@ -159,9 +187,25 @@ class Conciliator():
         self.update_fig() 
 
     def equal(self, event):
+        """A function to set the priority order to equal and calculate the transfer
+
+        Args:
+            self (self): a Conciliator object
+        """ 
         self.get_sliders(set_eq=True)
         self.priority = np.ones(len(self.R)) / len(self.R)
         # Optimize the trasnfer given the priority order and update the histogram
         self.remove_bars()
         self.update_transfer()
         self.update_fig()
+
+    def scalarisation_fit(self, condition="ESR"):
+        # TODO: The different conditions
+        """A function to fit the scalarisation function based on the history
+
+        Args:
+            self (self): a Conciliator object
+        """ 
+        avg_priorities = np.mean(self.priority_history, axis=1)
+
+        scalarised_preferences = None
