@@ -28,14 +28,16 @@ class Approximator():
 
         Args: 
             self (object): an approximator object
-            action (Array[Int]): the taken action of the approximator
+            action (Int): the taken action of the approximator from a flat array
 
         Returns:
             a_x (Array[Int]): the velocity in x-direction
             a_y (Array[Int]): the velocity in y-direction
         """ 
         a_x, a_y = np.zeros(7), np.zeros(7)
+        print("Act", action, "Mod", action % 7, "Div", action // 7)
         a_x[action % 7] = 1; a_y[action // 7] = 1
+        print(a_x, a_y)
         return a_x, a_y
     
     def explore(self):
@@ -48,7 +50,7 @@ class Approximator():
             action (tuple): a random acceleration in x- and y-directions
         """ 
         if len(self.unused_actions) == 0:
-            self.unused_actions = range(0,49)
+            self.unused_actions = range(0,48)
         action = random.sample(self.unused_actions,1)[0]
         action_arr = self.acceleration(action)
         return action_arr, action          
@@ -100,7 +102,7 @@ class Approximator():
             thresh (float): the error threshold for MSE
         """ 
         print("Starting training!")
-        self.unused_actions = range(0,49)
+        self.unused_actions = range(0,48)
         self.predictions = {}
         self.mean = np.zeros(3)
         self.std = np.ones(3)
@@ -124,7 +126,7 @@ class Approximator():
             a_x, a_y = self.acceleration(i)
             pred_reward = np.array(self.reward_prediction(dst=dst,action=i,state=state))
             # TODO: better match logic
-            if np.abs(pred_reward + 50).all() <= preference:
+            if np.all(np.abs(pred_reward + 50) <= preference):
                 next_action = a_x,a_y
         return next_action
     
@@ -158,7 +160,6 @@ class Approximator():
             current_state = next_state
             
             if done:
-                iters += 1
                 received_reward = [reward[0], time_reward+1000, reward[2]+18]
                 rewards.append(received_reward)
                 time_reward=0
@@ -167,6 +168,7 @@ class Approximator():
                 iters += 1
             
             if done:
+                iters += 1
                 dst.reset()
                 if iters >= n_iters:
                     stop = True

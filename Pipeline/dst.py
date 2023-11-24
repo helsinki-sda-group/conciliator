@@ -32,7 +32,7 @@ def init_dst():
     ))
     return dst
 
-def run(con, app, human, priority, state, preference, test_iters=1):
+def run(con, app, human, preference, test_iters=1, pareto_front=None, pareto_rew_matrix=None):
     dst = init_dst()
 
     dst.render()
@@ -69,17 +69,20 @@ def run(con, app, human, priority, state, preference, test_iters=1):
         else:
             action = app.next_action(preference,current_state,dst)
 
-        json_action1 = int(np.where(action[0]==1)[0]) - 3
-        json_action2 = int(np.where(action[1]==1)[0]) - 3
+        print(action)
+        json_action1 = np.where(action[0]==1)[0][0] - 3
+        print(json_action1)
+        json_action2 = np.where(action[1]==1)[0][0] - 3
+        print(json_action2)
         actions.append([json_action1,json_action2])
+        time.sleep(0.10)
         next_state, reward, done, debug_info = dst.step(action)
         current_state = next_state
         time_reward += int(reward[1])
         
         if done:
             received_rews = np.asarray([int(reward[0]), time_reward, int(reward[2])])
-            print_results(received=received_rews, preferred=preference, actions=actions)
-            iters += 1
+            print_results(received=received_rews, preferred=preference, actions=actions, objectives=con.objectives, pareto_front=pareto_front, pareto_rew_matrix=pareto_rew_matrix)
             time_reward = 0
         
         if not stop:
@@ -87,17 +90,18 @@ def run(con, app, human, priority, state, preference, test_iters=1):
                 time.sleep(0.25)
 
         if done:
+            iters += 1
             dst.reset()
             if iters >= test_iters:
                 stop = True
     
     print(f"Conciliator steering has ended. Bye!\n\n")
 
-def print_results(received, preferred, actions):
-    pareto_front, pareto_rew_matrix = read_paretos("3-objective.json")
-    labels = ["treasure", "time", "fuel"]
+def print_results(received, preferred, actions, objectives, pareto_front=None, pareto_rew_matrix=None):
+    if pareto_front is None:
+        pareto_front, pareto_rew_matrix = read_paretos("Pipeline/data/3-objective.json")
     rews = {'received': received, 'preferred': preferred, 'difference': received-preferred}
-    rew_df = pd.DataFrame(data=rews, index=labels)
+    rew_df = pd.DataFrame(data=rews, index=objectives)
     pd.set_option("display.precision", 3)
     print("\nDifference between the preferred and received reward ")
     print(rew_df)
@@ -115,14 +119,16 @@ def print_results(received, preferred, actions):
         metric = 0
     pareto_sim["% of same actions w.r.t. your own"] = metrics
     print("\n\nDifference to Pareto optimal solutions")
+    print("\nYour actions:", actions)
     print(pareto_sim)
 
 def main():
     human=False; test_iters=1
+    pareto_front, pareto_rew_matrix = read_paretos("Pipeline/data/3-objective.json")
     app = App.Approximator()
-    con = Con.Conciliator(objectives=['Time','Treasure','Fuel'], R = app.mean)
+    con = Con.Conciliator(objectives=['Treasure','Time','Fuel'], R = app.mean)
     priority, preference = con.priority, con.preference
-    run(con, app, human, priority, preference, test_iters)
+    run(con, app, human, preference, test_iters, pareto_front, pareto_rew_matrix)
 
 if __name__ == "__main__":
     main()
