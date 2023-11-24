@@ -1,3 +1,5 @@
 
 *.pyc
 *.json
+Pipeline/conciliator_v1.py
+Demos/Preferred_reward.png

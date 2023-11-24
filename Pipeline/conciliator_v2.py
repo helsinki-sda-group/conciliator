@@ -7,7 +7,7 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 class Conciliator():    
 
-    def __init__(self, R, eps=1e-16, priority=None):
+    def __init__(self, objectives, R, eps=1e-16, priority=None):
         """A function to perform one iteration of Conciliator on a given machine epsilon and reward vector
 
         Args:
@@ -28,16 +28,17 @@ class Conciliator():
             self.priority=priority
         self.preference = np.zeros(len(self.R))
         self.transfer = np.zeros(len(self.R))
-        self.scalarisation = None
-        self.pref_history = None
-        self.priority_history = None
+        self.priority_history = []
+        self.run(objectives=objectives)
 
+    def run(self, objectives):
         # Set the figure
         self.root = tk.Tk()
         self.root.title("Priority order")
         self.fig = Figure(figsize=(10,5))
         self.ax = self.fig.gca()
-        self.ax.set_xlabel("Objective #")
+        self.ax.set_xlabel("Objectives")
+        self.ax.set_xticks(ticks=range(1,len(objectives)+1), labels=objectives)
         self.ax.set_ylabel("Reward value")
         self.ax.set_ylim(0,np.sum(np.abs(self.R-np.mean(self.R))))
         self.ax.bar(range(1,len(self.R)+1),height=self.R,color='tab:blue',label="Original reward")
@@ -65,7 +66,7 @@ class Conciliator():
         # Set the sliders
         self.sliders = []
         for i in range(len(self.R)):
-            label = ttk.Label(text=f'Objective #{i+1}')
+            label = ttk.Label(text=f'Objective #{i+1}: {objectives[i]}')
             label.grid(row=i+1,column=0)
             slider = ttk.Scale(self.root,from_=self.eps, to=100, orient='horizontal', length=800)
             slider.set(50)
@@ -73,9 +74,13 @@ class Conciliator():
             slider.grid(row=i+1,column=2)
             self.sliders.append(slider)
         self.slider_values = np.zeros(len(self.sliders))
-        self.root.mainloop() 
+        self.root.mainloop()
+        self.update_res(self.slider_values) 
+
+    def update_res(self, slider_values):
         self.preference = self.R + self.transfer
-        self.priority = self.slider_values / np.sum(self.slider_values)
+        self.priority = slider_values / np.sum(slider_values)
+        self.priority_history.append(self.priority)
 
     # Function to be optimized
     def score(self,t):
@@ -194,18 +199,20 @@ class Conciliator():
         """ 
         self.get_sliders(set_eq=True)
         self.priority = np.ones(len(self.R)) / len(self.R)
-        # Optimize the trasnfer given the priority order and update the histogram
+        # Optimize the transfer given the priority order and update the histogram
         self.remove_bars()
         self.update_transfer()
         self.update_fig()
 
-    def scalarisation_fit(self, condition="ESR"):
-        # TODO: The different conditions
+    def scalarisation_fit(self, baseline_rew, mean, std):
         """A function to fit the scalarisation function based on the history
 
         Args:
             self (self): a Conciliator object
-        """ 
-        avg_priorities = np.mean(self.priority_history, axis=1)
-
-        scalarised_preferences = None
+        """
+        normed = (baseline_rew - mean) / std
+        weights = self.priority_history
+        if self.priority_history.ndim == 2:
+            weights = np.mean(self.priority_history, axis=0)
+        scalarisation = np.sum(weights*normed)
+        return scalarisation

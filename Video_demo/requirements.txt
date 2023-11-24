@@ -1,4 +1,0 @@
-maptlotlib
-scipy
-numpy
-tkinter

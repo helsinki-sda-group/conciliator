@@ -1,2 +1,2 @@
 pip install -r "requirements.txt"
-python conciliator.py
+python Pipeline/conciliator.py

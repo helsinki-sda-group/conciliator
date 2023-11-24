@@ -4,14 +4,11 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="https://github.com/helsinki-sda-group">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
-  </a>
 
 <h3 align="center">Conciliator steering</h3>
 
   <p align="center">
-    A visualisation demo for the NeurIPS 2023 paper "Conciliator steering: Imposing user preference with in multi-objective reinforcement learning problems' trade-offs with expected scalarised returns"
+    Code for the TCML paper "Conciliator steering: Imposing user preference in MORL"
   </p>
 </div>
 
@@ -45,7 +42,7 @@
 * Repository: `helsinki-sda-group/conciliator`, 
 * Email: `sara.pyykola@helsinki.fi`, 
 * Title: `Conciliator steering`, 
-* Description: `A visualisation demo for the NeurIPS 2023 paper "Conciliator steering: Imposing user preference with in multi-objective reinforcement learning problems' trade-offs with expected scalarised returns"`
+* Description: `The code implementation for the TCML paper "Conciliator steering: Imposing user preference in MORL. The code enables the user to interactively impose a priority order over rewards in a DeepSeaTreasure MORL problem presented by Cassimon et al., producing policies resulting in the user's preferred outcome."`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -53,7 +50,7 @@
 <!-- GETTING STARTED -->
 ## Installation
 
-1. Check the prerequisites 
+1. Make sure the prerequisites are installed
 2. Clone the repo
 3. Run `sh commands.sh` in the command line
 4. Success!
@@ -61,8 +58,7 @@
 
 ### Prerequisites
 
-* Python
-  Follow the insctructions from [Python's official website.](https://www.python.org/downloads/)
+* For Python, follow the insctructions from [Python's official website.](https://www.python.org/downloads/)
 
 * While not strictly a prerequisite, the code is highly recommended to be run in a Windows environment due to the Tkinter and the pip install commands included in the command line script.
 
@@ -73,25 +69,12 @@
 ## Structure
 The repository is partiotioned into the following files:
 * The `requirements.txt` contains the library requirements to run the demo.
-* The `conciliator.py` contains the optimization script.
+* The `Pipeline` folder contains the proposed algorithm as three Python scripts: `dst.py`, `conciliator.py` and `approximator.py`.
+* The `Demos` folder contains differents visualisations about the algorithm in action.
 * The `commands.sh` contains the command line script used to run the algorithm as a whole.
 * The `LICENSE.txt` contains the info about the license this project is distributed under.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-<!-- USAGE EXAMPLES -->
-## Usage
-
-The code is an interactive tool made for the Conciliator steering algorithm. 
-
-Below is a link to a video presenting the visualisation demo in action.
-
-[Video demo in OneDrive](https://helsinkifi-my.sharepoint.com/:v:/g/personal/spyykola_ad_helsinki_fi/EUjzRiqn4wdBplpUh9A8DegBL6o4b03T5HLziYhMAWn2Tg?e=M5JUjk)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- LICENSE -->
 ## License
