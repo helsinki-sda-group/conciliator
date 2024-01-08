@@ -16,28 +16,27 @@ class Approximator():
 
         Args: 
             self (object): an approximator object
-            action (Array[Int]): the taken action of the approximator
-            curr_state ([Float]): the current state
-            next_state ([Float]): the next state after the action has been taken
+            action (int): the taken action of the approximator from a flat array
+            curr_state ([float]): the current state
+            next_state ([float]): the next state after the action has been taken
         """ 
         delta = next_state[:,0] - curr_state[:,0]
-        self.predictions[action] = delta
+        if (action != 25 and delta.all() != 0) or (action == 25):
+            self.predictions[action] = delta
 
     def acceleration(self,action):
         """A function to return the acceleration of an action
 
         Args: 
             self (object): an approximator object
-            action (Int): the taken action of the approximator from a flat array
+            action (int): the taken action of the approximator from a flat array
 
         Returns:
-            a_x (Array[Int]): the velocity in x-direction
-            a_y (Array[Int]): the velocity in y-direction
+            a_x (Array[int]): the velocity in x-direction
+            a_y (Array[int]): the velocity in y-direction
         """ 
         a_x, a_y = np.zeros(7), np.zeros(7)
-        print("Act", action, "Mod", action % 7, "Div", action // 7)
         a_x[action % 7] = 1; a_y[action // 7] = 1
-        print(a_x, a_y)
         return a_x, a_y
     
     def explore(self):
@@ -59,7 +58,7 @@ class Approximator():
         Args: 
             self (object): an approximator object
             state (Array[float]): the state vector of velocity and relative locations
-            action (Array[Int]): the taken action of the approximator
+            action (Array[int]): the taken action of the approximator from a flat array
 
         Returns:
             time (float): the prediction of time used in the action
@@ -72,7 +71,7 @@ class Approximator():
         treasure = np.median(np.mean(treasures))
                              #1/distances/np.sum(distances))
         time = running_reward[1]-1
-        fuel = running_reward[2]+np.sum((self.predictions[action]**2))
+        fuel = running_reward[2]+np.sum((np.power(self.predictions[action],2)))
         return treasure, time, fuel
 
     def state(self, dst):
@@ -80,11 +79,11 @@ class Approximator():
 
         Args: 
             self (object): an approximator object
-            action (Array[Int]): the taken action of the approximator
+            action (Array[int]): the taken action of the approximator
 
         Returns:
-            sub_pos (Array[Int]): the velocity in x-direction
-            sub_vel (Array[Int]): the velocity in y-direction
+            sub_pos (Array[int]): the velocity in x-direction
+            sub_vel (Array[int]): the velocity in y-direction
         """ 
         return (dst.sub_pos, dst.sub_vel)
 
@@ -96,7 +95,10 @@ class Approximator():
             thresh (float): the error threshold for MSE
         """ 
         print("Starting training!")
-        self.predictions = {}
+        action_range = range(0,49)
+        x_velos = [(x % 7)-3 for x in action_range]
+        y_velos = [(x // 7)-3 for x in action_range]
+        self.predictions = dict(zip(action_range, zip(x_velos, y_velos)))
         self.mean = np.zeros(3)
         self.std = np.ones(3)
         random.seed(123)
@@ -110,6 +112,8 @@ class Approximator():
         Args: 
             preference (Array[float]): the preferred reward vector
             state (Array[float]): the current state 
+            dst (Object): the simulation environment object
+            running_reward (Array[float]): the collected rewards until the state
 
         Returns:
             next_action (Array[float]): the next action as action vector
