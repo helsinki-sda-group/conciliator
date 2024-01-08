@@ -72,9 +72,13 @@ def run(con, app, priority, preference, users=1, human=True):
         else:
             action = app.next_action(preference,current_state,dst, running_reward)
 
-        json_action1 = int(np.where(action[0]==1)[0]) - 3
-        json_action2 = int(np.where(action[1]==1)[0]) - 3
+        print(action)
+        json_action1 = np.where(action[0]==1)[0][0] - 3
+        print(json_action1)
+        json_action2 = np.where(action[1]==1)[0][0] - 3
+        print(json_action2)
         actions.append([json_action1,json_action2])
+        time.sleep(0.10)
         next_state, reward, done, debug_info = dst.step(action)
         current_state = next_state
         time_reward += int(reward[1])
@@ -92,6 +96,7 @@ def run(con, app, priority, preference, users=1, human=True):
                 time.sleep(0.25)
 
         if done:
+            iters += 1
             dst.reset()
             if iters >= users:
                 stop = True
@@ -103,7 +108,7 @@ def print_results(received, preferred, actions):
     pareto_front, pareto_rew_matrix = read_paretos("Pipeline/3-objective.json")
     labels = ["treasure", "time", "fuel"]
     rews = {'received': received, 'preferred': preferred, 'difference': received-preferred}
-    rew_df = pd.DataFrame(data=rews, index=labels)
+    rew_df = pd.DataFrame(data=rews, index=objectives)
     pd.set_option("display.precision", 3)
     print("\nDifference between the preferred and received reward ")
     print(rew_df)
@@ -121,6 +126,7 @@ def print_results(received, preferred, actions):
         metric = 0
     pareto_sim["% of same actions"] = metrics
     print("\n\nDifference to Pareto optimal solutions")
+    print("\nYour actions:", actions)
     print(pareto_sim)
 
 def main():

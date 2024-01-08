@@ -32,16 +32,17 @@ class Conciliator():
         self.preference = np.zeros(len(self.R))
         self.transfer = np.zeros(len(self.R))
         self.priority_history = []
-        self.run(objectives=objectives)
-
-    def run(self, objectives):
+        self.objectives = objectives
+        self.run()
+        
+    def run(self):
         # Set the figure
         self.root = tk.Tk()
         self.root.title("Priority order")
         self.fig = Figure(figsize=(10,5))
         self.ax = self.fig.gca()
         self.ax.set_xlabel("Objectives")
-        self.ax.set_xticks(ticks=range(1,len(objectives)+1), labels=objectives)
+        self.ax.set_xticks(ticks=range(1,len(self.objectives)+1), labels=self.objectives)
         self.ax.set_ylabel("Reward value")
         self.ax.set_ylim(0,np.sum(np.abs(self.R-np.mean(self.R))))
         self.ax.bar(range(1,len(self.R)+1),height=self.R,color='tab:blue',label="Original reward")
@@ -69,7 +70,7 @@ class Conciliator():
         # Set the sliders
         self.sliders = []
         for i in range(len(self.R)):
-            label = ttk.Label(text=f'Objective #{i+1}: {objectives[i]}')
+            label = ttk.Label(text=f'Objective #{i+1}: {self.objectives[i]}')
             label.grid(row=i+1,column=0)
             slider = ttk.Scale(self.root,from_=self.eps, to=100, orient='horizontal', length=800)
             slider.set(50)

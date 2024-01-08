@@ -28,14 +28,16 @@ class Approximator():
 
         Args: 
             self (object): an approximator object
-            action (Array[Int]): the taken action of the approximator
+            action (Int): the taken action of the approximator from a flat array
 
         Returns:
             a_x (Array[Int]): the velocity in x-direction
             a_y (Array[Int]): the velocity in y-direction
         """ 
         a_x, a_y = np.zeros(7), np.zeros(7)
+        print("Act", action, "Mod", action % 7, "Div", action // 7)
         a_x[action % 7] = 1; a_y[action // 7] = 1
+        print(a_x, a_y)
         return a_x, a_y
     
     def explore(self):
@@ -168,6 +170,7 @@ class Approximator():
                 iters += 1
             
             if done:
+                iters += 1
                 dst.reset()
                 if iters >= n_iters:
                     stop = True
