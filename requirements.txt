@@ -2,3 +2,4 @@ maptlotlib
 scipy
 numpy
 tkinter
+codecarbon

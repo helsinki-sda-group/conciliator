@@ -18,9 +18,12 @@ class Conciliator():
         Returns:
         priority ([float]): the priority order chosen by the user
         preference ([float]): the reward vector preferred by the user
+        transfer ([float]): the required transfer to meet the prefence of the user
+        priority_history ([[float]]): all priority orders chosen by the user
         """    
         # Set the global variables
         self.eps = eps
+        self.scaling = np.array([100,50,1])
         self.R = R
         if priority is None:
             self.priority = np.zeros(len(self.R))
@@ -79,7 +82,9 @@ class Conciliator():
 
     def update_res(self, slider_values):
         self.preference = self.R + self.transfer
-        self.priority = slider_values / np.sum(slider_values)
+        print("R:",self.R)
+        print("t:",self.transfer)
+        self.priority = slider_values / np.sum(slider_values) if np.sum(slider_values) != 0 else np.ones(len(self.R))
         self.priority_history.append(self.priority)
 
     # Function to be optimized
@@ -91,12 +96,12 @@ class Conciliator():
             t ([int]): a transfer vector
 
         Returns:
-            pref ([float]): the preferred reward vector
+            loss (float): the squared sum difference between the preferred reward and empirical mean reward
         """    
         # Normalize the priority order        
         priority = len(self.slider_values) * self.slider_values / np.sum(self.slider_values)
-        pref = np.sum(np.square(self.R + t - priority * np.mean(self.R)))
-        return pref
+        loss = np.sum(np.square(self.R + t - priority * np.mean(self.R)))
+        return loss
 
     def optimize_transfer(self,bounds=None):
         """A function to optimize the reward transfer for the given priority order

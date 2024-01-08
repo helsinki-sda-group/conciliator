@@ -47,13 +47,11 @@ class Approximator():
         Returns:
             action (tuple): a random acceleration in x- and y-directions
         """ 
-        if len(self.unused_actions) == 0:
-            self.unused_actions = range(0,49)
-        action = random.sample(self.unused_actions,1)[0]
-        action_arr = self.acceleration(action)
-        return action_arr, action          
+        action_ind = random.sample(self.sampled_actions,1)[0]
+        action = self.acceleration(action_ind)
+        return action, action_ind          
 
-    def reward_prediction(self, state, action, dst):
+    def reward_prediction(self, state, action, treasures, running_reward):
         """A function to calculate the reward estimate of an action
 
         Args: 
@@ -69,15 +67,11 @@ class Approximator():
         predicted_velo = state[:,0] + self.predictions[action]
         predicted_loc = state[:,1:] + np.reshape(predicted_velo,(2,1))
         distances = np.linalg.norm(predicted_loc, axis=0)
-        mask = distances == 0
-        if np.any(mask):
-            chest_index = np.where(mask)[0][0]
-            treasure = list(dst.treasures.values())[chest_index]
-        else:
-            treasure = 0
-        time = -1
-        fuel = -0.1
-        return time, fuel, treasure
+        treasure = np.median(np.mean(treasures))
+                             #1/distances/np.sum(distances))
+        time = running_reward[1]-1
+        fuel = running_reward[2]+np.sum((self.predictions[action]**2))
+        return treasure, time, fuel
 
     def state(self, dst):
         """A function to return the error of the approximator
@@ -92,7 +86,7 @@ class Approximator():
         """ 
         return (dst.sub_pos, dst.sub_vel)
 
-    def __init__(self, n_iters = 500):
+    def __init__(self, n_iters = 1000):
         """A function to return the error of the approximator
 
         Args: 
@@ -100,16 +94,15 @@ class Approximator():
             thresh (float): the error threshold for MSE
         """ 
         print("Starting training!")
-        self.unused_actions = range(0,49)
         self.predictions = {}
         self.mean = np.zeros(3)
         self.std = np.ones(3)
-        self.error = 0
-        self.df = pd.DataFrame()
+        random.seed(123)
+        self.sampled_actions = random.choices(range(0,49),k=n_iters)
         self.train(n_iters=n_iters)
         print("Ready!")
     
-    def next_action(self, preference, state,dst):
+    def next_action(self, preference, state, dst, running_reward):
         """A function to return the next best action based on the preference
 
         Args: 
@@ -119,27 +112,35 @@ class Approximator():
         Returns:
             next_action (Array[float]): the next action as action vector
         """ 
-        next_action = 0
+        
+        next_action = (0,0)
+        min_diff = np.inf
         for i in range(0,49):
             a_x, a_y = self.acceleration(i)
-            pred_reward = np.array(self.reward_prediction(dst=dst,action=i,state=state))
-            # TODO: better match logic
-            if np.abs(pred_reward + 50).all() <= preference:
-                next_action = a_x,a_y
+            pred_reward = np.array(self.reward_prediction(action=i,state=state, treasures=list(dst.treasures.values()),running_reward=running_reward))
+            diff = np.sum(np.square(preference-pred_reward))
+            if diff <= min_diff:
+                next_action = (a_x, a_y)
+                print(next_action)
+                print(diff)
+                min_diff = diff
+            else:
+                next_action = self.acceleration(random.choices(range(0,49),k=1)[0])
         return next_action
     
-    def train(self, n_iters = 500):
+    def train(self, n_iters = 1000):
         """A function to train the approximator
 
         Args: 
             n_iters (int): the number of trajectories the approximator conducts while training
             thresh (float): the error threshold for MSE
         """ 
+
         # Make sure experiment are reproducible, so people can use the exact same versions
         print(f"Using DST {deep_sea_treasure.__version__.VERSION} ({deep_sea_treasure.__version__.COMMIT_HASH})")
 
         dst: DeepSeaTreasureV0 =  FuelWrapper.new(DeepSeaTreasureV0.new(
-            max_steps=1000,
+            max_steps=100,
             render_treasure_values=True,
         ))
         stop: bool = False
@@ -148,18 +149,18 @@ class Approximator():
         rewards = []
         current_state = None
         while not stop:
-            action_arr, action = self.explore()
+            action, ind = self.explore()
             if current_state is None:
                 current_state = np.zeros((2,11))
                 current_state[:,1:] = np.column_stack(tuple(dst.treasures.keys()))
-            next_state, reward, done, debug_info = dst.step(action_arr)
+            next_state, reward, done, debug_info = dst.step(action)
             time_reward += int(reward[1])
-            self.update(action, current_state, next_state)
+            self.update(ind, current_state, next_state)
             current_state = next_state
             
             if done:
                 iters += 1
-                received_reward = [reward[0], time_reward+1000, reward[2]+18]
+                received_reward = [reward[0], time_reward+100, reward[2]+30]
                 rewards.append(received_reward)
                 time_reward=0
 
@@ -173,3 +174,18 @@ class Approximator():
 
         self.mean = np.mean(rewards,axis=0)
         self.std = np.std(rewards,axis=0)
+
+    # TODO: policy calculation
+    def policy_fit(self, baseline_rew, mean, std, cond="SER", n_pol=10):
+        """A function to calculate optimal policies based on the scalarisation weights
+
+        Args:
+            self (self): a Conciliator object
+            cond (String): the optimaility criterion
+        """
+        normed = (baseline_rew - mean) / std
+        weights = self.priority_history
+        if self.priority_history.ndim == 2:
+            weights = np.mean(self.priority_history, axis=0)
+        scalarisation = np.sum(weights*normed)
+        return scalarisation
