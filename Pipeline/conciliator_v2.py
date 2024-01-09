@@ -7,7 +7,7 @@ from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 
 class Conciliator():    
 
-    def __init__(self, objectives, R, eps=1e-16, priority=None):
+    def __init__(self, objectives, R, eps=1e-16, priority=None, display=True):
         """A function to perform one iteration of Conciliator on a given machine epsilon and reward vector
 
         Args:
@@ -25,15 +25,20 @@ class Conciliator():
         self.eps = eps
         self.scaling = np.array([100,50,1])
         self.R = R
-        if priority is None:
-            self.priority = np.zeros(len(self.R))
-        else:
-            self.priority=priority
-        self.preference = np.zeros(len(self.R))
-        self.transfer = np.zeros(len(self.R))
         self.priority_history = []
         self.objectives = objectives
-        self.run()
+        if priority is None:
+            self.priority = np.zeros(len(self.R))
+            self.preference = np.zeros(len(self.R))
+            self.transfer = np.zeros(len(self.R))
+        else:
+            self.priority=priority
+            self.priority_history.append(self.priority)
+            # TODO: testing suite
+            #self.transfer = 
+            #self.preference = 
+        if self.display == True:
+            self.run()
         
     def run(self):
         # Set the figure

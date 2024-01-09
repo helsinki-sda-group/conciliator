@@ -34,7 +34,7 @@ def init_dst():
     ))
     return dst
 
-def run(con, app, priority, preference, users=1, human=True):
+def run(con, app, priority, preference, n_iters=1, human=True):
     dst = init_dst()
 
     actions = []
@@ -87,18 +87,19 @@ def run(con, app, priority, preference, users=1, human=True):
         if done:
             received_rews = np.asarray([int(reward[0]), time_reward+100, int(reward[2])+30])
             print_results(received=received_rews, preferred=preference, actions=actions)
-            iters += 1
             time_reward = 0
         
         if not stop:
+            dst.render()
             if human:
-                dst.render()
                 time.sleep(0.25)
+            else:
+                time.sleep(0.05)
 
         if done:
             iters += 1
             dst.reset()
-            if iters >= users:
+            if iters >= n_iters:
                 stop = True
     
     print(f"Conciliator steering has ended. Bye!\n\n")
@@ -130,7 +131,7 @@ def print_results(received, preferred, actions):
     print(pareto_sim)
 
 def main():
-    # TODO:
+    # TODO: con set priority, app trajectory, result printing finetuning
     # Training
     # tracker = OfflineEmissionsTracker(country_iso_code="FIN")
     # tracker.start()
@@ -139,7 +140,7 @@ def main():
     # train_emissions = tracker.stop()*1000
     priority, preference = con.priority, con.preference
     print("Pref:",preference)
-    run(con, app, priority, preference, users=1, human=False)
+    run(con, app, priority, preference, n_iters=1, human=False)
 
     # Testing
     # Priority profiles
@@ -148,25 +149,25 @@ def main():
     # 3. "rush": 2/4 time, 1/4 treasure and 1/4 fuel
     # 4. "balanced": 1/3 time, 1/3 treasure and 1/3 fuel
     # priorities = [[1/9,2/9,6/9],[8/16,7/16,1/16],[2/4,1/4,1/4],[1/3,1/3,1/3]]
+    # baseline = app.mean
     # tracker.start()
-    # i = 0
     # for priority in priorities:
     #     print(f"Profile {i}: {priority}")
-    #     priority, preference = con.priority, con.preference
-    #     # ESR block
-    #     # Seek out 1 and calculate 3 policies for each priority profile 
-    #     print(f"\nESR tests\n")
-    #     run(con, app, human, priority, preference, users=1)
+    #     con = Con.Conciliator(objectives=['Treasure','Time','Fuel'], R = baseline, display=False)
+    #     preference = con.preference
+
+    #     # Seek out 3 policies for each priority profile 
+    #     print(f"\nSought out:\n")
+    #     run(con, app, human, priority, preference, n_iters=3)
+    #     print_results(preference, priority, policy) 
+
+    #     Calculate 3 policies for each priority profile 
+    #     print(f"\nCalcuclated:\n")
     #     fitted_weights = con.scalarisation_fit()
-    #     esr_policies = app.policy_fit(n_pol=3, cond="ESR", weights=fitted_weights)
-    #     for policy in esr_policies:
+    #     policies = app.policy_fit(n_pol=3)
+    #     for policy in policies:
     #         print_results(preference, priority, policy)
-    #     # SER block
-    #     # Calculate an averaged set of 10 policies for each priority profile
-    #     print(f"\nSER tests\n")
-    #     ser_policy = app.policy_fit(n_pol=10, cond="SER", weights=fitted_weights)
-    #     print_results(preference, priority, ser_policy)
-    #     i += 1
+
     # test_emissions = tracker.stop()*1000
 
     # Emissions

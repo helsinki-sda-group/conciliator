@@ -11,18 +11,15 @@ class Approximator():
     Approximates actions' consequences and consquently rewards using Monte Carlo sampling and assumptions of deterministic transitions
     """
 
-    def update(self, action, curr_state, next_state):
+    def update(self, trajectory, reward):
         """A function to update the prediction of approximator
 
         Args: 
             self (object): an approximator object
-            action (int): the taken action of the approximator from a flat array
+            trajectory (Array[int]): the sampled trajectories
             curr_state ([float]): the current state
             next_state ([float]): the next state after the action has been taken
         """ 
-        delta = next_state[:,0] - curr_state[:,0]
-        if (action != 25 and delta.all() != 0) or (action == 25):
-            self.predictions[action] = delta
 
     def acceleration(self,action):
         """A function to return the acceleration of an action
@@ -48,7 +45,8 @@ class Approximator():
         Returns:
             action (tuple): a random acceleration in x- and y-directions
         """ 
-        action_ind = random.sample(self.sampled_actions,1)[0]
+        action_ind = 1
+        #TODO: what action to choose? MCTS?
         action = self.acceleration(action_ind)
         return action, action_ind          
 
@@ -96,13 +94,10 @@ class Approximator():
         """ 
         print("Starting training!")
         action_range = range(0,49)
-        x_velos = [(x % 7)-3 for x in action_range]
-        y_velos = [(x // 7)-3 for x in action_range]
-        self.predictions = dict(zip(action_range, zip(x_velos, y_velos)))
         self.mean = np.zeros(3)
         self.std = np.ones(3)
         random.seed(123)
-        self.sampled_actions = random.choices(range(0,49),k=n_iters)
+        self.trajectories = []
         self.train(n_iters=n_iters)
         print("Ready!")
     
@@ -131,10 +126,12 @@ class Approximator():
                 print(diff)
                 min_diff = diff
             else:
-                next_action = self.acceleration(random.choices(range(0,49),k=1)[0])
+                next_action = 1
+                #TODO: what aciton to choose? 
+                #self.acceleration(random.choices(range(0,49),k=1)[0])
         return next_action
     
-    def train(self, n_iters = 1000):
+    def train(self, n_iters = 500):
         """A function to train the approximator
 
         Args: 
@@ -153,28 +150,26 @@ class Approximator():
         iters: int = 0
         time_reward: int = 0
         rewards = []
-        current_state = None
+        trajectory = []
+        trajectories = []
+        scaling = [1,1,1]
         while not stop:
             action, ind = self.explore()
-            if current_state is None:
-                current_state = np.zeros((2,11))
-                current_state[:,1:] = np.column_stack(tuple(dst.treasures.keys()))
+            #if current_state is None:
+            #    current_state = np.zeros((2,11))
+            #    current_state[:,1:] = np.column_stack(tuple(dst.treasures.keys()))
             next_state, reward, done, debug_info = dst.step(action)
             time_reward += int(reward[1])
-            self.update(ind, current_state, next_state)
-            current_state = next_state
+            trajectory.append(action)
             
             if done:
-                iters += 1
-                received_reward = [reward[0], time_reward+100, reward[2]+30]
+                received_reward = [reward[0], time_reward, reward[2]]*scaling
+                self.update(trajectory, received_reward)
                 rewards.append(received_reward)
+                trajectories.append(trajectory)
                 time_reward=0
-
-            if not stop:
                 iters += 1
-            
-            if done:
-                iters += 1
+                trajectory= []
                 dst.reset()
                 if iters >= n_iters:
                     stop = True
@@ -183,16 +178,17 @@ class Approximator():
         self.std = np.std(rewards,axis=0)
 
     # TODO: policy calculation
-    def policy_fit(self, baseline_rew, mean, std, cond="SER", n_pol=10):
-        """A function to calculate optimal policies based on the scalarisation weights
+    def policy_fit(self, n_pol=10):
+        """A function to calculate optimal policies based on the priority order as weights
 
         Args:
             self (self): a Conciliator object
-            cond (String): the optimaility criterion
         """
-        normed = (baseline_rew - mean) / std
-        weights = self.priority_history
-        if self.priority_history.ndim == 2:
-            weights = np.mean(self.priority_history, axis=0)
-        scalarisation = np.sum(weights*normed)
+        weights = self.priority_history[:-1]
+        gamma = 0.95
+        mid = lambda r, k: np.sum(r*(gamma**k))
+        # TODO: scalarisation function fit, different options or function fitting?
+        scalarisation_function_1 = lambda weights, r, k: mid(r, k)
+        scalarisation = lambda u, weights, r, k: (1/49)*u(mid(weights, r, k))
+
         return scalarisation
