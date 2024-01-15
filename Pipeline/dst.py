@@ -74,7 +74,7 @@ def main():
     i = 1 
 
     # Emissions
-    tracker = OfflineEmissionsTracker(country_iso_code="FIN")
+    tracker = OfflineEmissionsTracker(country_iso_code="FIN", output_dir = "Results", output_file = f"emissions_{i}.csv")
     tracker.start()
 
     # Pareto front and baseline
