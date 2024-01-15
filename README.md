@@ -8,7 +8,7 @@
 <h3 align="center">Conciliator steering</h3>
 
   <p align="center">
-    Code for the TCML paper "Conciliator steering: Imposing user preference in MORL"
+    Code for the TCML paper "Conciliator steering: Imposing user preference in MORL decision-making problems"
   </p>
 </div>
 
@@ -38,11 +38,8 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-* Author: Sara Pyykölä, `xpyxpyx`, 
-* Repository: `helsinki-sda-group/conciliator`, 
-* Email: `sara.pyykola@helsinki.fi`, 
 * Title: `Conciliator steering`, 
-* Description: `The code implementation for the TCML paper "Conciliator steering: Imposing user preference in MORL. The code enables the user to interactively impose a priority order over rewards in a DeepSeaTreasure MORL problem presented by Cassimon et al., producing policies resulting in the user's preferred outcome."`
+* Description: `The code implementation for the TCML paper "Conciliator steering: Imposing user preference in MORL decision-making problems". The code enables the user to interactively impose a priority order over rewards in a DeepSeaTreasure MORL problem presented by Cassimon et al., producing policies resulting in the user's preferred outcome."`
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
