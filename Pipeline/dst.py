@@ -1,13 +1,19 @@
 import numpy as np
 import time
-import deep_sea_treasure
 import sys
-from deep_sea_treasure import DeepSeaTreasureV0
+import os
+#import deep_sea_treasure
+#from deep_sea_treasure import DeepSeaTreasureV0
+#from deep_sea_treasure import FuelWrapper
+filepath = os.path.join(os.getcwd(), "deep_sea_treasure_v2")
+if filepath not in sys.path:
+    sys.path.append(filepath)
+import deep_sea_treasure_v2
+from deep_sea_treasure_v2 import DeepSeaTreasureV0, FuelWrapper
 import pygame
 import pandas as pd
-from deep_sea_treasure import FuelWrapper
-import conciliator_v2 as Con 
-import approximator_v1 as App
+import conciliator as Con 
+import approximator as App
 import json
 from codecarbon import OfflineEmissionsTracker
 
@@ -26,31 +32,85 @@ def read_paretos(file):
     
 def init_dst():
     # Make sure experiment are reproducible, so people can use the exact same versions
-    print(f"Using DST {deep_sea_treasure.__version__.VERSION} ({deep_sea_treasure.__version__.COMMIT_HASH})")
+    print(f"Using DST {deep_sea_treasure_v2.__version__.VERSION} ({deep_sea_treasure_v2.__version__.COMMIT_HASH})")
 
     dst: DeepSeaTreasureV0 =  FuelWrapper.new(DeepSeaTreasureV0.new(
-        max_steps=100,
+        max_steps=50,
         render_treasure_values=True,
+        max_velocity=4.0,
+        implicit_collision_constraint=False,
+        render_grid=True
     ))
-    return dst
+    return dst    
 
-def run(con, app, priority, preference, n_iters=1, human=True):
+def print_results(received, preferred, actions, pareto_front, pareto_rew_matrix):
+    print("Actions:", actions)
+    labels = ["treasure", "time", "fuel"]
+    rews = {'received': received, 'preferred': preferred, 'difference': received-preferred}
+    rew_df = pd.DataFrame(data=rews, index=labels)
+    pd.set_option("display.precision", 3)
+    print("\nDifference between the preferred and received rewards:")
+    print(rew_df)
+    rew_diff = pareto_rew_matrix['Treasure'] == received[0]
+    pareto_sim = pd.DataFrame(data={"Same treasure": rew_diff})
+    n = len(actions)
+    metric = 0
+    metrics = []
+    for i in range(len(pareto_front)):
+        seq = pareto_front[i]
+        for j in range(min(len(seq), n)):
+            if seq[j] == actions[j]: 
+                metric +=1
+        metrics.append(metric/n)
+        metric = 0
+    pareto_sim["Ratio of same actions"] = metrics
+    print("\nDifference to Pareto optimal solutions")
+    print(pareto_sim)
+
+def array_to_json(arr):
+    return np.where(arr==1)[0][0] - 3
+
+def main():
+    i = 1 
+
+    # Emissions
+    tracker = OfflineEmissionsTracker(country_iso_code="FIN")
+    tracker.start()
+
+    # Pareto front and baseline
+    pareto_front, pareto_rew_matrix = read_paretos("Pipeline/data/3-objective.json")
+    incomplete_pareto_rew_matrix = pareto_rew_matrix.drop(pareto_rew_matrix.tail(1).index,inplace = False)
+    baseline = incomplete_pareto_rew_matrix.mean(axis=0).values
+
+    # Testing
+    # Priority profiles
+    # 1. "eco": 1/9 time, 2/9 treasure and 6/9 fuel
+    # 2. "gold digger": 1/16 time, 13/16 treasure and 2/16 fuel
+    # 3. "rush": 13/16 time, 1/16 treasure and 2/16 fuel
+    # 4. "balanced": 1/3 time, 1/3 treasure and 1/3 fuel
+    priorities = [[10/100,20/100,70/100],[98/100,1/100,1/100],[2/100,49/100,49/100],[20/100,40/100,40/100]]
     dst = init_dst()
 
-    actions = []
-    iters = 0
+    policy = []
 
     stop: bool = False
     time_reward: int = 0
-    current_state = None        
-    running_reward = [0,0,0]
+    fuel_reward: int = 0
+    current_state = np.concatenate((dst.sub_vel, np.array(list(dst.treasures.keys())).T), axis=1) 
+    running_reward = np.array([0.,0.,0.])
+    app = App.Approximator()
+    human=False
 
+    print(f"\nHello! Conciliator steering has started.\n")
+    # Seek out a policy for each user profile 
+    priority = np.array(priorities[i])
+    print(f"Profile {i}: {priority}")
+    con = Con.Conciliator(objectives=['Treasure','Time','Fuel'], R = baseline, filename=f"{i}", priority=priority)
+    print(f"Preference: {con.preference}\n")
+
+    dst.render()
     while not stop:
-        if current_state is None:
-            current_state = np.zeros((2,11))
-            current_state[:,1:] = np.column_stack(tuple(dst.treasures.keys()))
         if human:
-            dst.render()
             events = pygame.event.get()
             action = (np.asarray([0, 0, 0, 1, 0, 0, 0]), np.asarray([0, 0, 0, 1, 0, 0, 0]))
             for event in events:
@@ -70,110 +130,42 @@ def run(con, app, priority, preference, n_iters=1, human=True):
                 if event.type == pygame.QUIT:
                     stop = True
         else:
-            action = app.next_action(preference,current_state,dst, running_reward)
+            action = app.next_action(con.preference,current_state,dst,running_reward,con.priority)
 
-        print(action)
-        json_action1 = np.where(action[0]==1)[0][0] - 3
-        print(json_action1)
-        json_action2 = np.where(action[1]==1)[0][0] - 3
-        print(json_action2)
-        actions.append([json_action1,json_action2])
-        time.sleep(0.10)
+        json_action_x = array_to_json(action[0])
+        json_action_y = array_to_json(action[1])
+        policy.append([json_action_x,json_action_y])
+        previous_velo = dst.sub_vel.flatten()
         next_state, reward, done, debug_info = dst.step(action)
+        
+        next_velo = dst.sub_vel.flatten()
+        if np.all(next_velo == 0.0) and np.any(previous_velo+np.array((json_action_x,json_action_y)) != next_velo):
+            sys.exit("Collision occurred!")
         current_state = next_state
-        time_reward += int(reward[1])
-        running_reward += [reward[0],time_reward,reward[2]]
+        time_reward += reward[1]
+        fuel_reward += reward[2]
+        running_reward += np.array([reward[0],reward[1],reward[2]])
         
         if done:
-            received_rews = np.asarray([int(reward[0]), time_reward+100, int(reward[2])+30])
-            print_results(received=received_rews, preferred=preference, actions=actions)
+            received_rews = np.asarray([reward[0], time_reward, fuel_reward])
+            print_results(received_rews, con.preference, policy, pareto_front, pareto_rew_matrix)
             time_reward = 0
+            fuel_reward = 0
+            policy = []
         
         if not stop:
             dst.render()
-            if human:
-                time.sleep(0.25)
-            else:
-                time.sleep(0.05)
-
+            time.sleep(1)
+        
         if done:
-            iters += 1
             dst.reset()
-            if iters >= n_iters:
-                stop = True
-    
-    print(f"Conciliator steering has ended. Bye!\n\n")
-
-def print_results(received, preferred, actions):
-    print("\nActions:", actions)
-    pareto_front, pareto_rew_matrix = read_paretos("Pipeline/3-objective.json")
-    labels = ["treasure", "time", "fuel"]
-    rews = {'received': received, 'preferred': preferred, 'difference': received-preferred}
-    rew_df = pd.DataFrame(data=rews, index=objectives)
-    pd.set_option("display.precision", 3)
-    print("\nDifference between the preferred and received reward ")
-    print(rew_df)
-    rew_diff = pareto_rew_matrix['Treasure'] == received[0]
-    pareto_sim = pd.DataFrame(data={'Same chest': rew_diff})
-    n = len(actions)
-    metric = 0
-    metrics = []
-    for i in range(len(pareto_front)):
-        seq = pareto_front[i]
-        for j in range(min(len(seq), n)):
-            if seq[j] == actions[j]: 
-                metric +=1
-        metrics.append(metric/n*100)
-        metric = 0
-    pareto_sim["% of same actions"] = metrics
-    print("\n\nDifference to Pareto optimal solutions")
-    print("\nYour actions:", actions)
-    print(pareto_sim)
-
-def main():
-    # TODO: con set priority, app trajectory, result printing finetuning
-    # Training
-    # tracker = OfflineEmissionsTracker(country_iso_code="FIN")
-    # tracker.start()
-    app = App.Approximator()
-    con = Con.Conciliator(objectives=['Treasure','Time','Fuel'], R = app.mean)
-    # train_emissions = tracker.stop()*1000
-    priority, preference = con.priority, con.preference
-    print("Pref:",preference)
-    run(con, app, priority, preference, n_iters=1, human=False)
-
-    # Testing
-    # Priority profiles
-    # 1. "eco": 1/9 time, 2/9 treasure and 6/9 fuel
-    # 2. "treasure rush": 8/16 time, 7/16 treasure and 1/16 fuel
-    # 3. "rush": 2/4 time, 1/4 treasure and 1/4 fuel
-    # 4. "balanced": 1/3 time, 1/3 treasure and 1/3 fuel
-    # priorities = [[1/9,2/9,6/9],[8/16,7/16,1/16],[2/4,1/4,1/4],[1/3,1/3,1/3]]
-    # baseline = app.mean
-    # tracker.start()
-    # for priority in priorities:
-    #     print(f"Profile {i}: {priority}")
-    #     con = Con.Conciliator(objectives=['Treasure','Time','Fuel'], R = baseline, display=False)
-    #     preference = con.preference
-
-    #     # Seek out 3 policies for each priority profile 
-    #     print(f"\nSought out:\n")
-    #     run(con, app, human, priority, preference, n_iters=3)
-    #     print_results(preference, priority, policy) 
-
-    #     Calculate 3 policies for each priority profile 
-    #     print(f"\nCalcuclated:\n")
-    #     fitted_weights = con.scalarisation_fit()
-    #     policies = app.policy_fit(n_pol=3)
-    #     for policy in policies:
-    #         print_results(preference, priority, policy)
-
-    # test_emissions = tracker.stop()*1000
+            stop = True
+        
+    print(f"\nConciliator steering has ended. Bye!\n\n")
 
     # Emissions
-    # print(f"Training emissions: {train_emissions} g of CO2")
-    # print(f"Testing emissions: {test_emissions} g of CO2")
-    # print(f"Total emissions: {train_emissions+test_emissions} g of CO2")
+    emissions = tracker.stop()*1000
+    print(f"Emissions: {emissions} g of CO2")
 
 
 if __name__ == "__main__":

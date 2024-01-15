@@ -1,4 +1,4 @@
 *.pyc
-*.json
-Pipeline/conciliator_v1.py
-Pipeline/conciliator.py
+*.gitignore
+Pipeline/__pycache__
+Archives/

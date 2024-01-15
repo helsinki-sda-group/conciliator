@@ -3,3 +3,9 @@ scipy
 numpy
 tkinter
 codecarbon
+time
+deep_sea_treasure
+pygame
+pandas
+json
+random

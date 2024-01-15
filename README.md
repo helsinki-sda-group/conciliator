@@ -88,6 +88,4 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Sara Pyykölä - sara.pyykola@helsinki.fi
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
