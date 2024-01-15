@@ -1,0 +1,315 @@
+> python3 dst.py
+
+[codecarbon INFO @ 02:53:50] offline tracker init
+[codecarbon INFO @ 02:53:50] [setup] RAM Tracking...       
+[codecarbon INFO @ 02:53:50] [setup] GPU Tracking...       
+[codecarbon INFO @ 02:53:50] Tracking Nvidia GPU via pynvml
+[codecarbon INFO @ 02:53:50] [setup] CPU Tracking...
+[codecarbon WARNING @ 02:53:50] No CPU tracking mode found. Falling back on CPU constant mode.
+[codecarbon WARNING @ 02:53:51] We saw that you have a Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz but we don't know it. Please contact us.
+[codecarbon INFO @ 02:53:51] CPU Model on constant consumption mode: Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz
+[codecarbon INFO @ 02:53:51] >>> Tracker's metadata:
+[codecarbon INFO @ 02:53:51]   Platform system: Windows-10-10.0.19041-SP0
+[codecarbon INFO @ 02:53:51]   Python version: 3.9.2
+[codecarbon INFO @ 02:53:51]   CodeCarbon version: 2.3.2
+[codecarbon INFO @ 02:53:51]   Available RAM : 15.848 GB
+[codecarbon INFO @ 02:53:51]   CPU count: 8
+[codecarbon INFO @ 02:53:51]   CPU model: Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz
+[codecarbon INFO @ 02:53:51]   GPU count: 1
+[codecarbon INFO @ 02:53:51]   GPU model: 1 x GeForce GTX 1650 with Max-Q Design
+Using DST 2.0.2 (8739bdc51aa9e2f5710897d3ef40f69e2b870e8d)
+~Python\Python39\lib\site-packages\gym\spaces\box.py:127: UserWarning: WARN: Box bound precision lowered by casting to float32
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+
+Hello! Conciliator steering has started.
+
+Profile 0: [0.1 0.2 0.7]
+Preference: [25.80775684 -4.55894461 -0.26852819]
+
+[codecarbon INFO @ 02:54:06] Energy consumed for RAM : 0.000025 kWh. RAM Power : 5.942914009094238 W
+[codecarbon INFO @ 02:54:06] Energy consumed for all GPUs : 0.000015 kWh. Total GPU Power : 3.662104235885296 W
+[codecarbon INFO @ 02:54:06] Energy consumed for all CPUs : 0.000177 kWh. Total CPU Power : 42.5 W
+[codecarbon INFO @ 02:54:06] 0.000217 kWh of electricity used since the beginning.
+[codecarbon INFO @ 02:54:21] Energy consumed for RAM : 0.000050 kWh. RAM Power : 5.942914009094238 W
+[codecarbon INFO @ 02:54:21] Energy consumed for all GPUs : 0.000031 kWh. Total GPU Power : 3.668358678569656 W
+[codecarbon INFO @ 02:54:21] Energy consumed for all CPUs : 0.000354 kWh. Total CPU Power : 42.5 W
+[codecarbon INFO @ 02:54:21] 0.000435 kWh of electricity used since the beginning.
+[codecarbon INFO @ 02:54:36] Energy consumed for RAM : 0.000074 kWh. RAM Power : 5.942914009094238 W
+[codecarbon INFO @ 02:54:36] Energy consumed for all GPUs : 0.000046 kWh. Total GPU Power : 3.6466851954906807 W
+[codecarbon INFO @ 02:54:36] Energy consumed for all CPUs : 0.000531 kWh. Total CPU Power : 42.5 W
+[codecarbon INFO @ 02:54:36] 0.000651 kWh of electricity used since the beginning.
+Actions: [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 
+0], [0, 0], [0, 0], [0, 0]]
+
+Difference between the preferred and received rewards:
+          received  preferred  difference
+treasure       0.0     25.808     -25.808
+time         -50.0     -4.559     -45.441
+fuel           0.0     -0.269       0.269
+
+Difference to Pareto optimal solutions
+    Same treasure  Ratio of same actions
+0           False                   0.00
+1           False                   0.12
+2           False                   0.10
+3           False                   0.06
+4           False                   0.12
+5           False                   0.16
+6           False                   0.18
+7           False                   0.06
+8           False                   0.00
+9           False                   0.02
+11          False                   0.00
+12          False                   0.00
+13          False                   0.02
+14          False                   0.06
+15          False                   0.04
+16          False                   0.00
+17          False                   0.00
+18          False                   0.00
+19          False                   0.00
+20          False                   0.02
+21          False                   0.00
+22          False                   0.00
+23          False                   0.00
+24          False                   0.00
+25           True                   1.00
+
+Conciliator steering has ended. Bye!
+
+
+[codecarbon INFO @ 02:54:44] Energy consumed for RAM : 0.000087 kWh. RAM Power : 5.942914009094238 W
+[codecarbon INFO @ 02:54:44] Energy consumed for all GPUs : 0.000054 kWh. Total GPU Power : 3.584103358861923 W
+[codecarbon INFO @ 02:54:44] Energy consumed for all CPUs : 0.000624 kWh. Total CPU Power : 42.5 W
+[codecarbon INFO @ 02:54:44] 0.000765 kWh of electricity used since the beginning.
+Emissions: 0.11138472935350291 g of CO2
+
+> python3 dst.py
+
+[codecarbon INFO @ 02:57:13] offline tracker init
+[codecarbon INFO @ 02:57:13] [setup] RAM Tracking...
+[codecarbon INFO @ 02:57:13] [setup] GPU Tracking...
+[codecarbon INFO @ 02:57:13] Tracking Nvidia GPU via pynvml
+[codecarbon INFO @ 02:57:13] [setup] CPU Tracking...
+[codecarbon WARNING @ 02:57:13] No CPU tracking mode found. Falling back on CPU constant mode.
+[codecarbon WARNING @ 02:57:14] We saw that you have a Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz but we don't know it. Please contact us.
+[codecarbon INFO @ 02:57:14] CPU Model on constant consumption mode: Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz
+[codecarbon INFO @ 02:57:14] >>> Tracker's metadata:
+[codecarbon INFO @ 02:57:14]   Platform system: Windows-10-10.0.19041-SP0
+[codecarbon INFO @ 02:57:14]   Python version: 3.9.2
+[codecarbon INFO @ 02:57:14]   CodeCarbon version: 2.3.2
+[codecarbon INFO @ 02:57:14]   Available RAM : 15.848 GB
+[codecarbon INFO @ 02:57:14]   CPU count: 8
+[codecarbon INFO @ 02:57:14]   CPU model: Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz
+[codecarbon INFO @ 02:57:14]   GPU count: 1
+[codecarbon INFO @ 02:57:14]   GPU model: 1 x GeForce GTX 1650 with Max-Q Design
+Using DST 2.0.2 (8739bdc51aa9e2f5710897d3ef40f69e2b870e8d)
+Python\Python39\lib\site-packages\gym\spaces\box.py:127: UserWarning: WARN: Box bound precision lowered by casting to float32
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+
+Hello! Conciliator steering has started.
+
+Profile 1: [0.98 0.01 0.01]
+Preference: [105.53762615 -15.         -28.9274384 ]
+
+Actions: [[3, 0], [2, 3], [-2, 2], [-2, -1]]
+
+Difference between the preferred and received rewards:
+          received  preferred  difference
+treasure     124.0    105.538      18.462
+time          -4.0    -15.000      11.000
+fuel         -35.0    -28.927      -6.073
+
+Difference to Pareto optimal solutions
+    Same treasure  Ratio of same actions
+0           False                    0.0
+1            True                    0.0
+2           False                    0.0
+3           False                    0.0
+4           False                    0.0
+5           False                    0.0
+6            True                    0.0
+7           False                    0.0
+8           False                    0.0
+9            True                    0.0
+10          False                    0.0
+11          False                    0.0
+12          False                    0.0
+13          False                    0.0
+15          False                    0.0
+16          False                    0.0
+17           True                    0.0
+18           True                    0.0
+19          False                    0.0
+20          False                    0.0
+21           True                    0.0
+22          False                    0.0
+23          False                    0.0
+24          False                    0.0
+25          False                    0.0
+
+Conciliator steering has ended. Bye!
+
+[codecarbon INFO @ 02:57:20] Energy consumed for RAM : 0.000009 kWh. RAM Power : 5.942914009094238 W
+[codecarbon INFO @ 02:57:20] Energy consumed for all GPUs : 0.000006 kWh. Total GPU Power : 3.648119638886158 W
+[codecarbon INFO @ 02:57:20] Energy consumed for all CPUs : 0.000065 kWh. Total CPU Power : 42.5 W
+[codecarbon INFO @ 02:57:20] 0.000080 kWh of electricity used since the beginning.
+Emissions: 0.011667870878041326 g of CO2
+
+> python3 dst.py
+
+[codecarbon INFO @ 02:59:22] offline tracker init
+[codecarbon INFO @ 02:59:22] [setup] RAM Tracking...
+[codecarbon INFO @ 02:59:22] [setup] GPU Tracking...
+[codecarbon INFO @ 02:59:22] Tracking Nvidia GPU via pynvml
+[codecarbon INFO @ 02:59:22] [setup] CPU Tracking...
+[codecarbon WARNING @ 02:59:22] No CPU tracking mode found. Falling back on CPU constant mode.
+[codecarbon WARNING @ 02:59:23] We saw that you have a Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz but we don't know it. Please contact us.
+[codecarbon INFO @ 02:59:23] CPU Model on constant consumption mode: Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz
+[codecarbon INFO @ 02:59:23] >>> Tracker's metadata:
+[codecarbon INFO @ 02:59:23]   Platform system: Windows-10-10.0.19041-SP0
+[codecarbon INFO @ 02:59:23]   Python version: 3.9.2
+[codecarbon INFO @ 02:59:23]   CodeCarbon version: 2.3.2
+[codecarbon INFO @ 02:59:23]   Available RAM : 15.848 GB
+[codecarbon INFO @ 02:59:23]   CPU count: 8
+[codecarbon INFO @ 02:59:23]   CPU model: Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz
+[codecarbon INFO @ 02:59:23]   GPU count: 1
+[codecarbon INFO @ 02:59:23]   GPU model: 1 x GeForce GTX 1650 with Max-Q Design
+Using DST 2.0.2 (8739bdc51aa9e2f5710897d3ef40f69e2b870e8d)
+Python\Python39\lib\site-packages\gym\spaces\box.py:127: UserWarning: WARN: Box bound precision lowered by casting to float32
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+
+Hello! Conciliator steering has started.
+
+Profile 2: [0.02 0.49 0.49]
+Preference: [ 3.84060081  0.         -0.26852819]
+
+[codecarbon INFO @ 02:59:38] Energy consumed for RAM : 0.000025 kWh. RAM Power : 5.942914009094238 W
+[codecarbon INFO @ 02:59:38] Energy consumed for all GPUs : 0.000015 kWh. Total GPU Power : 3.6350156452024427 W
+[codecarbon INFO @ 02:59:38] Energy consumed for all CPUs : 0.000177 kWh. Total CPU Power : 42.5 W
+[codecarbon INFO @ 02:59:38] 0.000217 kWh of electricity used since the beginning.
+[codecarbon INFO @ 02:59:53] Energy consumed for RAM : 0.000050 kWh. RAM Power : 5.942914009094238 W
+[codecarbon INFO @ 02:59:53] Energy consumed for all GPUs : 0.000030 kWh. Total GPU Power : 3.642165918106088 W
+[codecarbon INFO @ 02:59:53] Energy consumed for all CPUs : 0.000355 kWh. Total CPU Power : 42.5 W
+[codecarbon INFO @ 02:59:53] 0.000435 kWh of electricity used since the beginning.
+[codecarbon INFO @ 03:00:08] Energy consumed for RAM : 0.000074 kWh. RAM Power : 5.942914009094238 W
+[codecarbon INFO @ 03:00:08] Energy consumed for all GPUs : 0.000046 kWh. Total GPU Power : 3.6678036136627687 W
+[codecarbon INFO @ 03:00:08] Energy consumed for all CPUs : 0.000531 kWh. Total CPU Power : 42.5 W
+[codecarbon INFO @ 03:00:08] 0.000651 kWh of electricity used since the beginning.
+Actions: [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 
+0], [0, 0], [0, 0], [0, 0]]
+
+Difference between the preferred and received rewards:
+          received  preferred  difference
+treasure       0.0      3.841      -3.841
+time         -50.0      0.000     -50.000
+fuel           0.0     -0.269       0.269
+
+Difference to Pareto optimal solutions
+    Same treasure  Ratio of same actions
+0           False                   0.00
+1           False                   0.12
+2           False                   0.10
+3           False                   0.06
+4           False                   0.12
+5           False                   0.16
+6           False                   0.18
+7           False                   0.06
+8           False                   0.00
+9           False                   0.02
+10          False                   0.00
+11          False                   0.00
+12          False                   0.00
+13          False                   0.02
+14          False                   0.06
+15          False                   0.04
+16          False                   0.00
+17          False                   0.00
+18          False                   0.00
+19          False                   0.00
+20          False                   0.02
+21          False                   0.00
+22          False                   0.00
+23          False                   0.00
+24          False                   0.00
+25           True                   1.00
+
+Conciliator steering has ended. Bye!
+
+
+[codecarbon INFO @ 03:00:16] Energy consumed for RAM : 0.000087 kWh. RAM Power : 5.942914009094238 W
+[codecarbon INFO @ 03:00:16] Energy consumed for all GPUs : 0.000053 kWh. Total GPU Power : 3.6565901890574195 W
+[codecarbon INFO @ 03:00:16] Energy consumed for all CPUs : 0.000623 kWh. Total CPU Power : 42.5 W
+[codecarbon INFO @ 03:00:16] 0.000763 kWh of electricity used since the beginning.
+Emissions: 0.11105026704958712 g of CO2
+
+> python3 dst.py
+[codecarbon INFO @ 02:57:48] [setup] RAM Tracking...
+[codecarbon INFO @ 02:57:48] [setup] GPU Tracking...
+[codecarbon INFO @ 02:57:48] Tracking Nvidia GPU via pynvml
+[codecarbon INFO @ 02:57:48] [setup] CPU Tracking...
+[codecarbon WARNING @ 02:57:48] No CPU tracking mode found. Falling back on CPU constant mode.
+[codecarbon WARNING @ 02:57:49] We saw that you have a Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz but we don't know it. Please contact us.
+[codecarbon INFO @ 02:57:49] CPU Model on constant consumption mode: Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz
+[codecarbon INFO @ 02:57:49] >>> Tracker's metadata:
+[codecarbon INFO @ 02:57:49]   Platform system: Windows-10-10.0.19041-SP0
+[codecarbon INFO @ 02:57:49]   Python version: 3.9.2
+[codecarbon INFO @ 02:57:49]   CodeCarbon version: 2.3.2
+[codecarbon INFO @ 02:57:49]   Available RAM : 15.848 GB
+[codecarbon INFO @ 02:57:49]   CPU count: 8
+[codecarbon INFO @ 02:57:49]   CPU model: Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz
+[codecarbon INFO @ 02:57:49]   GPU count: 1
+[codecarbon INFO @ 02:57:49]   GPU model: 1 x GeForce GTX 1650 with Max-Q Design
+Using DST 2.0.2 (8739bdc51aa9e2f5710897d3ef40f69e2b870e8d)
+Python\Python39\lib\site-packages\gym\spaces\box.py:127: UserWarning: WARN: Box bound precision lowered by casting to float32
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+
+Hello! Conciliator steering has started.
+
+Profile 3: [0.2 0.4 0.4]
+Preference: [24.45017431 -2.04560037 -2.04560037]
+
+Actions: [[1, 1], [0, 0], [0, 0], [1, 0]]
+
+Difference between the preferred and received rewards:
+          received  preferred  difference
+treasure      16.0     24.450      -8.450
+time          -4.0     -2.046      -1.954
+fuel          -3.0     -2.046      -0.954
+
+Difference to Pareto optimal solutions
+    Same treasure  Ratio of same actions
+0           False                   0.00
+1           False                   0.50
+2           False                   0.50
+3           False                   0.50
+4           False                   0.25
+5           False                   0.25
+6           False                   0.25
+7            True                   0.25
+8           False                   0.00
+9           False                   0.00
+10          False                   0.00
+11          False                   0.00
+12          False                   0.25
+13          False                   0.50
+15           True                   1.00
+16           True                   0.25
+17          False                   0.25
+18          False                   0.25
+19          False                   0.00
+20          False                   0.25
+21          False                   0.00
+22           True                   0.00
+23          False                   0.00
+24          False                   0.00
+25          False                   0.50
+
+Conciliator steering has ended. Bye!
+
+
+[codecarbon INFO @ 02:57:55] Energy consumed for RAM : 0.000009 kWh. RAM Power : 5.942914009094238 W
+[codecarbon INFO @ 02:57:55] Energy consumed for all GPUs : 0.000006 kWh. Total GPU Power : 3.647196992282579 W
+[codecarbon INFO @ 02:57:55] Energy consumed for all CPUs : 0.000066 kWh. Total CPU Power : 42.5 W
+[codecarbon INFO @ 02:57:55] 0.000081 kWh of electricity used since the beginning.
+Emissions: 0.011753387825781822 g of CO2
