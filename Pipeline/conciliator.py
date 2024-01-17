@@ -143,7 +143,7 @@ class Conciliator():
         current_directory_path = os.getcwd()
         file_name = f'preference_{self.filename}.png'
         file_path = os.path.join(current_directory_path, file_name)
-        subfolder_path = os.path.join(current_directory_path, 'Results')
+        subfolder_path = os.path.join(current_directory_path, '/Pipeline/Results')
         if not os.path.exists(subfolder_path):
             os.makedirs(subfolder_path)
         file_path = os.path.join(subfolder_path, file_name)
