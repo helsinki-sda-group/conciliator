@@ -71,9 +71,9 @@ def array_to_json(arr):
     return np.where(arr==1)[0][0] - 3
 
 def main():
-    i = int(sys.argv[1])
-    if i is None:
-        i = 1
+    i = 0
+    if len(sys.argv) > 0:
+        i = int(sys.argv[1])
 
     # Emissions
     tracker = OfflineEmissionsTracker(country_iso_code="FIN", output_dir = "Results", output_file = f"emissions_{i}.csv")

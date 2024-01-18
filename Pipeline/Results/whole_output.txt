@@ -84,6 +84,8 @@ Conciliator steering has ended. Bye!
 [codecarbon INFO @ 02:54:44] 0.000765 kWh of electricity used since the beginning.
 Emissions: 0.11138472935350291 g of CO2
 
+====================
+
 > python3 dst.py
 
 [codecarbon INFO @ 02:57:13] offline tracker init
@@ -155,6 +157,8 @@ Conciliator steering has ended. Bye!
 [codecarbon INFO @ 02:57:20] Energy consumed for all CPUs : 0.000065 kWh. Total CPU Power : 42.5 W
 [codecarbon INFO @ 02:57:20] 0.000080 kWh of electricity used since the beginning.
 Emissions: 0.011667870878041326 g of CO2
+
+====================
 
 > python3 dst.py
 
@@ -243,6 +247,8 @@ Conciliator steering has ended. Bye!
 [codecarbon INFO @ 03:00:16] 0.000763 kWh of electricity used since the beginning.
 Emissions: 0.11105026704958712 g of CO2
 
+====================
+
 > python3 dst.py
 [codecarbon INFO @ 02:57:48] [setup] RAM Tracking...
 [codecarbon INFO @ 02:57:48] [setup] GPU Tracking...
@@ -313,3 +319,6 @@ Conciliator steering has ended. Bye!
 [codecarbon INFO @ 02:57:55] Energy consumed for all CPUs : 0.000066 kWh. Total CPU Power : 42.5 W
 [codecarbon INFO @ 02:57:55] 0.000081 kWh of electricity used since the beginning.
 Emissions: 0.011753387825781822 g of CO2
+
+====================
+
