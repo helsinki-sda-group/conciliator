@@ -57,7 +57,7 @@
 
 * For Python, follow the insctructions from [Python's official website.](https://www.python.org/downloads/)
 
-* While not strictly a prerequisite, the code is highly recommended to be run in a Windows environment due to the Tkinter and the pip install commands included in the command line script.
+* The code is strictly designed to be run in a Windows environment using the PyPI package installer due to the Tkinter and the pip install commands included in the command line script.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -66,8 +66,8 @@
 ## Structure
 The repository is partiotioned into the following files:
 * The `requirements.txt` contains the library requirements to run the demo.
-* The `Pipeline` folder contains the proposed algorithm as three Python scripts: `dst.py`, `conciliator.py` and `approximator.py`.
-* The `Demos` folder contains differents visualisations about the algorithm in action.
+* The `Pipeline` folder contains the proposed algorithm as four Python scripts: `dst.py`, `conciliator.py`, `approximator.py` and `cleanup.py`.
+  * The `Results` sub-folder contains the outputs of the proposed algorithm.
 * The `commands.sh` contains the command line script used to run the algorithm as a whole.
 * The `LICENSE.txt` contains the info about the license this project is distributed under.
 
