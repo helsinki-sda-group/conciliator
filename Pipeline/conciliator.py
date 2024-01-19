@@ -54,7 +54,7 @@ class Conciliator():
         self.fig.set_size_inches(10,5)
         self.width = 1/n
         for i in range(n):
-            self.axs[i].set_ylim(-abs(4*self.R[i]), abs(4*self.R[i]))
+            self.axs[i].set_ylim(-abs(5*self.R[i]), abs(5*self.R[i]))
             self.axs[i].set_xlim(-0.5, 0.5)
             self.axs[i].bar(0,height=self.R[i],width=self.width,color='tab:blue',label="Original reward")
             bar1 = self.axs[i].bar(0,height=0,bottom=min(0,self.R[i]),width=self.width,color='tab:orange',label="Reward removed")
@@ -115,12 +115,12 @@ class Conciliator():
         """  
         # Enforce the constraints
         temp = self.scaled_R + self.transfer
-        if temp[1] < np.exp(-1.5):
-            temp[0] -= np.exp(-1.5) - temp[1]
-            temp[1] = np.exp(-1.5)
-        if temp[2] < np.exp(-3.0):
-            temp[0] -= np.exp(-3.0) - temp[2]
-            temp[2] = np.exp(-3.0)
+        # if temp[1] < np.exp(-1.5):
+        #     temp[0] -= np.exp(-1.5) - temp[1]
+        #     temp[1] = np.exp(-1.5)
+        # if temp[2] < np.exp(-3.0):
+        #     temp[0] -= np.exp(-3.0) - temp[2]
+        #     temp[2] = np.exp(-3.0)
  
         for i in range(1,3):
             if temp[i] > 1.0:
@@ -140,10 +140,8 @@ class Conciliator():
         self.save_figure()
 
     def save_figure(self):
-        current_directory_path = os.getcwd()
         file_name = f'preference_{self.filename}.png'
-        file_path = os.path.join(current_directory_path, file_name)
-        subfolder_path = os.path.join(current_directory_path, '/Pipeline/Results')
+        subfolder_path = os.path.join(os.getcwd(),'Pipeline','Results')
         if not os.path.exists(subfolder_path):
             os.makedirs(subfolder_path)
         file_path = os.path.join(subfolder_path, file_name)

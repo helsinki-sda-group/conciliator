@@ -71,12 +71,12 @@ def array_to_json(arr):
     return np.where(arr==1)[0][0] - 3
 
 def main():
-    i = 0
-    if len(sys.argv) > 0:
+    i = 2
+    if len(sys.argv) > 1:
         i = int(sys.argv[1])
 
     # Emissions
-    tracker = OfflineEmissionsTracker(country_iso_code="FIN", output_dir = "Results", output_file = f"emissions_{i}.csv")
+    tracker = OfflineEmissionsTracker(country_iso_code="FIN", output_dir = "Pipeline/Results/", output_file = f"emissions_{i}.csv")
     tracker.start()
 
     # Pareto front and baseline
@@ -90,7 +90,7 @@ def main():
     # 2. "gold digger": 1/16 time, 13/16 treasure and 2/16 fuel
     # 3. "rush": 13/16 time, 1/16 treasure and 2/16 fuel
     # 4. "balanced": 1/3 time, 1/3 treasure and 1/3 fuel
-    priorities = [[10/100,20/100,70/100],[98/100,1/100,1/100],[2/100,49/100,49/100],[20/100,40/100,40/100]]
+    priorities = [[1/10,2/10,7/10],[98/100,1/100,1/100],[1/10,5/10,4/10],[1/5,2/5,2/5]]
     dst = init_dst()
 
     policy = []
@@ -106,9 +106,11 @@ def main():
     print(f"\nHello! Conciliator steering has started.\n")
     # Seek out a policy for each user profile 
     priority = np.array(priorities[i])
+    #priority = np.array([3,0,0])
     print(f"Profile {i}: {priority}")
     con = Con.Conciliator(objectives=['Treasure','Time','Fuel'], R = baseline, filename=f"{i}", priority=priority)
     print(f"Preference: {con.preference}\n")
+    print(f"Baseline: {baseline}")
 
     dst.render()
     while not stop:
@@ -141,8 +143,8 @@ def main():
         next_state, reward, done, debug_info = dst.step(action)
         
         next_velo = dst.sub_vel.flatten()
-        if np.all(next_velo == 0.0) and np.any(previous_velo+np.array((json_action_x,json_action_y)) != next_velo):
-            sys.exit("Collision occurred!")
+        #if np.all(next_velo == 0.0) and np.any(previous_velo+np.array((json_action_x,json_action_y)) != next_velo):
+        #    sys.exit(f"Collision occurred with a policy {policy}!")
         current_state = next_state
         time_reward += reward[1]
         fuel_reward += reward[2]

@@ -271,7 +271,7 @@ class DeepSeaTreasureV0(gym.Env): #type: ignore[misc]
 		else:
 			a,b,c = y_next-y,-(x_next-x),(x_next-x)*y-(y_next-y)*x
 			dists = (-a*treasure_coords[:,0] - b*treasure_coords[:,1] + c) / np.sqrt(a**2+b**2)
-			return np.any((dists <= 0) & (dists > -np.sqrt(2)/2))
+			return np.any((dists < 0) & (dists > -np.sqrt(2)/2))
 
 	def __collides_diagonally(self, next_pos: npt.NDArray[np.int32]) -> bool:
 		seabed_y: int = int(self.seabed[next_pos[0]])

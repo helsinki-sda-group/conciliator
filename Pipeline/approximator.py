@@ -72,17 +72,20 @@ class Approximator():
         # Regular time and fuel
         time = cumulative_reward[1] - 1
         fuel = cumulative_reward[2] - np.sum(action**2)
-        # Check for edges or seabed
         x_next, y_next = float(predicted_pos[0]), -float(predicted_pos[1])
+        # Check for seabed vertically and horizontally, and then the edges
         if np.any(((predicted_locs[0,:] >= 0) & (predicted_locs[1,:] < 0)) | (np.any((predicted_locs[0,:] > 0) & (predicted_locs[1,:] <= 0)))) or (x_next < 0) or (x_next >= 10) or (y_next > 0) or (y_next < -10):
             return (-np.inf, -np.inf, -np.inf)
         x, y =  float(dst.sub_pos[0]), -float(dst.sub_pos[1])
         treasure_coords = np.array(list(dst.treasures.keys()))
-        if np.any((-x_next == treasure_coords[:,0]) & (-y_next == treasure_coords[:,1])):
+        # Check for the chests
+        if np.any((x_next == treasure_coords[:,0]) & (-y_next == treasure_coords[:,1])):
             return (treasure, time, fuel)
+        # Check if not stayed put
         elif (x,y) != (x_next,y_next):
             a,b,c = y_next-y,-(x_next-x),(x_next-x)*y-(y_next-y)*x
             dists = (-a*treasure_coords[:,0] - b*treasure_coords[:,1] + c) / np.sqrt(a**2+b**2)
+            # Check if move intercepts seabed or chest
             if np.any((dists <= 0) & (dists > -np.sqrt(2)/2)) & np.any((predicted_locs[0,:] > 0) & (predicted_locs[1,:] < 0)):
                 return (-np.inf, -np.inf, -np.inf)
         return (treasure, time, fuel)
