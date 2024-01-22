@@ -1,13 +1,8 @@
-maptlotlib
+matplotlib
 scipy
 numpy
-tkinter
+tk
 codecarbon
-time
-deep_sea_treasure
 pygame
 pandas
-json
-random
-os
-sys
+deep_sea_treasure

@@ -1,88 +1,35 @@
-<a name="readme-top"></a>
+# Conciliator steering
 
+The project is a code implementation for the TCML paper "Conciliator steering: Imposing user preference in MORL decision-making problems". The code enables the user to interactively or pre-definedly impose a priority order over rewards in a DeepSeaTreasure v1 benchmark presented by Cassimon et al., producing policies resulting in the user's preferred outcome.
 
-<!-- PROJECT LOGO -->
-<br />
-<div align="center">
-
-<h3 align="center">Conciliator steering</h3>
-
-  <p align="center">
-    Code for the TCML paper "Conciliator steering: Imposing user preference in MORL decision-making problems"
-  </p>
-</div>
-
-
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">About The Project</a>
-    </li>
-    <li>
-      <a href="#getting-started">Getting Started</a>
-      <ul>
-        <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-      </ul>
-    </li>
-    <li><a href="#usage">Usage</a></li>
-    <li><a href="#structure">Structure</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ol>
-</details>
-
-
-<!-- ABOUT THE PROJECT -->
-## About The Project
-
-* Title: `Conciliator steering`, 
-* Description: `The code implementation for the TCML paper "Conciliator steering: Imposing user preference in MORL decision-making problems". The code enables the user to interactively impose a priority order over rewards in a DeepSeaTreasure MORL problem presented by Cassimon et al., producing policies resulting in the user's preferred outcome."`
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-<!-- GETTING STARTED -->
-## Installation
-
-1. Make sure the prerequisites are installed
-2. Clone the repo
-3. Run `sh commands.sh` in the command line
-4. Success!
-
+## Getting started
 
 ### Prerequisites
 
 * For Python, follow the insctructions from [Python's official website.](https://www.python.org/downloads/)
 
-* The code is strictly designed to be run in a Windows environment using the PyPI package installer due to the Tkinter and the pip install commands included in the command line script.
+* For Git on Windows, follow the instructions from [Git's official website.](https://gitforwindows.org/)
 
+Note: the code is designed in a Windows environment using the PyPI package installer due to the pip install commands included in the command line script. Using this script in other environments may induce errors.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+### Usage
 
+1. Make sure the prerequisites are installed
+2. Clone or download the repo
+3. Run `sh commands.sh` in the command line in the root directory
+4. Success!
 
 ## Structure
+
 The repository is partiotioned into the following files:
-* The `requirements.txt` contains the library requirements to run the demo.
-* The `Pipeline` folder contains the proposed algorithm as four Python scripts: `dst.py`, `conciliator.py`, `approximator.py` and `cleanup.py`.
+
+* The `Pipeline` folder contains the proposed algorithm along with all the required Python scripts for it to run. The scripts contain their own documentation.
   * The `Results` sub-folder contains the outputs of the proposed algorithm.
-* The `commands.sh` contains the command line script used to run the algorithm as a whole.
-* The `LICENSE.txt` contains the info about the license this project is distributed under.
+* The `requirements.txt` contains the required libraries to run the demo.
+* The `commands.sh` contains the command line script used to run the testing suite as a whole: it first install the libraries, then executes the testing and finally aggregates the outputs into their own directory.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- LICENSE -->
 ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- CONTACT -->
 ## Contact
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>

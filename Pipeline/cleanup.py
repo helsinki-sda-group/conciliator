@@ -4,7 +4,7 @@ import sys
 import numpy as np
 
 # Number of outputs
-j = 4
+j = 3
 if len(sys.argv) > 1:
     j = int(sys.argv[1])
 

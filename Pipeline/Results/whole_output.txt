@@ -322,3 +322,342 @@ Emissions: 0.011753387825781822 g of CO2
 
 ====================
 
+Using DST 2.0.2 (8739bdc51aa9e2f5710897d3ef40f69e2b870e8d)
+
+Hello! Conciliator steering has started.
+
+Profile 0: [0.1 0.2 0.7]
+Preference: [25.80775684 -4.55894461 -0.26852819]
+
+Baseline: [57.8  -5.32 -7.2 ]
+(4.533473662533404e-05, -1.0, 0.0)
+0.8172773759904473
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 1, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -2.0, 0.0)
+0.8314738722657721
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 2, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -3.0, 0.0)
+0.8445317926119096
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 3, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -4.0, 0.0)
+0.8565237248417308
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 4, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -5.0, 0.0)
+0.8580821708829742
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 5, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -6.0, 0.0)
+0.8482335922673196
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 6, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -7.0, 0.0)
+0.8394196783506898
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 7, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -8.0, 0.0)
+0.8315234714227617
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 8, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -9.0, 0.0)
+0.8244427183419956
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 9, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -10.0, 0.0)
+0.8180877637160356
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 10, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -11.0, 0.0)
+0.8123797879449899
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 11, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -12.0, 0.0)
+0.8072493267244691
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 12, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -13.0, 0.0)
+0.8026350214073357
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 13, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -14.0, 0.0)
+0.7984825596352448
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 14, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -15.0, 0.0)
+0.7947437735224603
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 15, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -16.0, 0.0)
+0.7913758688940408
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 16, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -17.0, 0.0)
+0.7883407640188159
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 17, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -18.0, 0.0)
+0.785604520216899
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 18, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -19.0, 0.0)
+0.7831368498781065
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 19, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -20.0, 0.0)
+0.7809106899681418
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 20, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -21.0, 0.0)
+0.778901831152689
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 21, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -22.0, 0.0)
+0.7770885943359246
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 22, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -23.0, 0.0)
+0.7754515477677438
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 23, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -24.0, 0.0)
+0.7739732589846986
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 24, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -25.0, 0.0)
+0.7726380767617262
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 25, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -26.0, 0.0)
+0.7714319390035531
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 26, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -27.0, 0.0)
+0.7703422031266619
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 27, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -28.0, 0.0)
+0.7693574959992042
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 28, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -29.0, 0.0)
+0.7684675809366814
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 29, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -30.0, 0.0)
+0.7676632396112074
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 30, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -31.0, 0.0)
+0.7669361670343167
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 31, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -32.0, 0.0)
+0.7662788780277501
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 32, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -33.0, 0.0)
+0.76568462381171
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 33, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -34.0, 0.0)
+0.7651473175224384
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 34, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -35.0, 0.0)
+0.7646614676261252
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 35, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -36.0, 0.0)
+0.7642221183285873
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 36, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -37.0, 0.0)
+0.763824796193568
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 37, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -38.0, 0.0)
+0.7634654622799177
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 38, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -39.0, 0.0)
+0.7631404691918541
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 39, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -40.0, 0.0)
+0.7628465225090337
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 40, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -41.0, 0.0)
+0.7625806461260294
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 41, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -42.0, 0.0)
+0.7623401510854381
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 42, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -43.0, 0.0)
+0.7621226075364539
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 43, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -44.0, 0.0)
+0.7619258194923253
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 44, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -45.0, 0.0)
+0.7617478020965408
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 45, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -46.0, 0.0)
+0.7615867611395606
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 46, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -47.0, 0.0)
+0.7614410745960342
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 47, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -48.0, 0.0)
+0.7613092759772488
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 48, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -49.0, 0.0)
+0.7611900393154514
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 49, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(4.533473662533404e-05, -50.0, 0.0)
+0.7610821656160748
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 50, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+Actions: [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]
+
+Difference between the preferred and received rewards:
+          received  preferred  difference
+treasure       0.0     25.808     -25.808
+time         -50.0     -4.559     -45.441
+fuel           0.0     -0.269       0.269
+
+Difference to Pareto optimal solutions
+    Treasure difference  ...  Ratio of same actions
+0                   1.0  ...                   0.00
+1                 124.0  ...                   0.12
+2                  74.0  ...                   0.10
+3                  50.0  ...                   0.06
+4                  50.0  ...                   0.12
+5                  74.0  ...                   0.16
+6                 124.0  ...                   0.18
+7                  16.0  ...                   0.06
+8                  50.0  ...                   0.00
+9                 124.0  ...                   0.02
+10                 74.0  ...                   0.00
+11                 74.0  ...                   0.00
+12                  2.0  ...                   0.00
+13                  3.0  ...                   0.02
+14                  8.0  ...                   0.06
+15                 16.0  ...                   0.04
+16                 16.0  ...                   0.00
+17                124.0  ...                   0.00
+18                124.0  ...                   0.00
+19                  3.0  ...                   0.00
+20                 50.0  ...                   0.02
+21                124.0  ...                   0.00
+22                 16.0  ...                   0.00
+23                 74.0  ...                   0.00
+24                 50.0  ...                   0.00
+25                  0.0  ...                   1.00
+
+[26 rows x 4 columns]
+
+Conciliator steering has ended. Bye!
+
+
+Emissions: 0.11069828223242248 g of CO2
+
+
+====================
+
+Using DST 2.0.2 (8739bdc51aa9e2f5710897d3ef40f69e2b870e8d)
+
+Hello! Conciliator steering has started.
+
+Profile 1: [0.98 0.01 0.01]
+Preference: [115.6       -28.9274384 -28.9274384]
+
+Baseline: [57.8  -5.32 -7.2 ]
+(0.0002802808464656507, -1.0, -18.0)
+0.003434172960491063
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': -9, 'y': -9}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 3, 'y': 3}, 'time': {'current': 1, 'max': 50}, 'velocity': {'x': 3, 'y': 3, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(0.04159736585991147, -2.0, -23.0)
+0.003446337705329522
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': -1, 'y': -4}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 7, 'y': 4}, 'time': {'current': 2, 'max': 50}, 'velocity': {'x': 4, 'y': 1, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(16.781575121339976, -3.0, -36.0)
+0.007834346894864163
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': -4, 'y': -9}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 9, 'y': 8}, 'time': {'current': 3, 'max': 50}, 'velocity': {'x': 2, 'y': 4, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(124.0, -4.0, -44.0)
+0.6582434527781579
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': -4, 'y': -4}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 9, 'y': 10}, 'time': {'current': 4, 'max': 50}, 'velocity': {'x': 0, 'y': 2, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+Actions: [[3, 3], [1, -2], [-2, 3], [-2, -2]]
+
+Difference between the preferred and received rewards:
+          received  preferred  difference
+treasure     124.0    115.600       8.400
+time          -4.0    -28.927      24.927
+fuel         -44.0    -28.927     -15.073
+
+Difference to Pareto optimal solutions
+    Treasure difference  ...  Ratio of same actions
+0                -123.0  ...                    0.0
+1                   0.0  ...                    0.0
+2                 -50.0  ...                    0.0
+3                 -74.0  ...                    0.0
+4                 -74.0  ...                    0.0
+5                 -50.0  ...                    0.0
+6                   0.0  ...                    0.0
+7                -108.0  ...                    0.0
+8                 -74.0  ...                    0.0
+9                   0.0  ...                    0.0
+10                -50.0  ...                    0.0
+11                -50.0  ...                    0.0
+12               -122.0  ...                    0.0
+13               -121.0  ...                    0.0
+14               -116.0  ...                    0.0
+15               -108.0  ...                    0.0
+16               -108.0  ...                    0.0
+17                  0.0  ...                    0.0
+18                  0.0  ...                    0.0
+19               -121.0  ...                    0.0
+20                -74.0  ...                    0.0
+21                  0.0  ...                    0.0
+22               -108.0  ...                    0.0
+23                -50.0  ...                    0.0
+24                -74.0  ...                    0.0
+25               -124.0  ...                    0.0
+
+[26 rows x 4 columns]
+
+Conciliator steering has ended. Bye!
+
+
+Emissions: 0.012542008076281228 g of CO2
+
+
+====================
+
+Using DST 2.0.2 (8739bdc51aa9e2f5710897d3ef40f69e2b870e8d)
+
+Hello! Conciliator steering has started.
+
+Profile 2: [0.2 0.4 0.4]
+Preference: [24.45017431 -2.04560037 -2.04560037]
+
+Baseline: [57.8  -5.32 -7.2 ]
+(0.0003349809121548392, -1.0, -2.0)
+0.7543332642905791
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': -1, 'y': -1}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 1, 'y': 1}, 'time': {'current': 1, 'max': 50}, 'velocity': {'x': 1, 'y': 1, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(0.0024751927519830667, -2.0, -2.0)
+0.7807838363892226
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 2, 'y': 2}, 'time': {'current': 2, 'max': 50}, 'velocity': {'x': 1, 'y': 1, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(0.018289338100069424, -3.0, -2.0)
+0.7592046835602242
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 3, 'y': 3}, 'time': {'current': 3, 'max': 50}, 'velocity': {'x': 1, 'y': 1, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+(0.1351409452337227, -4.0, -2.0)
+0.7389576872644298
+{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 4, 'y': 4}, 'time': {'current': 4, 'max': 50}, 'velocity': {'x': 1, 'y': 1, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
+Actions: [[1, 1], [0, 0], [0, 0], [0, 0]]
+
+Difference between the preferred and received rewards:
+          received  preferred  difference
+treasure       8.0     24.450     -16.450
+time          -4.0     -2.046      -1.954
+fuel          -2.0     -2.046       0.046
+
+Difference to Pareto optimal solutions
+    Treasure difference  ...  Ratio of same actions
+0                  -7.0  ...                   0.00
+1                 116.0  ...                   0.75
+2                  66.0  ...                   0.75
+3                  42.0  ...                   0.50
+4                  42.0  ...                   0.50
+5                  66.0  ...                   0.50
+6                 116.0  ...                   0.50
+7                   8.0  ...                   0.50
+8                  42.0  ...                   0.00
+9                 116.0  ...                   0.00
+10                 66.0  ...                   0.00
+11                 66.0  ...                   0.00
+12                 -6.0  ...                   0.25
+13                 -5.0  ...                   0.50
+14                  0.0  ...                   1.00
+15                  8.0  ...                   0.75
+16                  8.0  ...                   0.25
+17                116.0  ...                   0.25
+18                116.0  ...                   0.25
+19                 -5.0  ...                   0.00
+20                 42.0  ...                   0.25
+21                116.0  ...                   0.00
+22                  8.0  ...                   0.00
+23                 66.0  ...                   0.00
+24                 42.0  ...                   0.00
+25                 -8.0  ...                   0.75
+
+[26 rows x 4 columns]
+
+Conciliator steering has ended. Bye!
+
+
+Emissions: 0.012469230749567576 g of CO2
+
+
+====================
+

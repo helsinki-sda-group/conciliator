@@ -102,7 +102,7 @@ class FuelWrapper(gym.Wrapper): #type: ignore[misc]
 			"inner": debug
 		}
 
-		if not (debug["collision"]["horizontal"] or debug["collision"]["vertical"] or debug["collision"]["diagonal"]):
+		if not debug["collision"]:
 			new_rewards[-1] = int(x_fuel_cost + y_fuel_cost)
 			new_debug["fuel_cost"]["x"] = x_fuel_cost
 			new_debug["fuel_cost"]["y"] = y_fuel_cost

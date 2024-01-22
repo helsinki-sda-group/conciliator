@@ -16,6 +16,7 @@ import conciliator as Con
 import approximator as App
 import json
 from codecarbon import OfflineEmissionsTracker
+#import warnings
 
 def read_paretos(file):
     f = open(file)
@@ -51,8 +52,8 @@ def print_results(received, preferred, actions, pareto_front, pareto_rew_matrix)
     pd.set_option("display.precision", 3)
     print("\nDifference between the preferred and received rewards:")
     print(rew_df)
-    rew_diff = pareto_rew_matrix['Treasure'] == received[0]
-    pareto_sim = pd.DataFrame(data={"Same treasure": rew_diff})
+    rew_diffs = np.subtract(pareto_rew_matrix, np.reshape(received, (1,3)))
+    pareto_sim = pd.DataFrame(data={"Treasure difference": rew_diffs.iloc[:,0], "Time difference": rew_diffs.iloc[:,1], "Fuel difference": rew_diffs.iloc[:,2]})
     n = len(actions)
     metric = 0
     metrics = []
@@ -86,11 +87,10 @@ def main():
 
     # Testing
     # Priority profiles
-    # 1. "eco": 1/9 time, 2/9 treasure and 6/9 fuel
-    # 2. "gold digger": 1/16 time, 13/16 treasure and 2/16 fuel
-    # 3. "rush": 13/16 time, 1/16 treasure and 2/16 fuel
-    # 4. "balanced": 1/3 time, 1/3 treasure and 1/3 fuel
-    priorities = [[1/10,2/10,7/10],[98/100,1/100,1/100],[1/10,5/10,4/10],[1/5,2/5,2/5]]
+    # 1. "eco": 1/10 treasure, 2/10 time and 7/10 fuel
+    # 2. "gold digger": 98/100 treasure, 1/100 time and 1/100 fuel
+    # 3. "balanced": 1/5 treasure, 2/5 time and 2/5 fuel
+    priorities = [[1/10,2/10,7/10],[98/100,1/100,1/100],[1/5,2/5,2/5]]
     dst = init_dst()
 
     policy = []
@@ -106,13 +106,13 @@ def main():
     print(f"\nHello! Conciliator steering has started.\n")
     # Seek out a policy for each user profile 
     priority = np.array(priorities[i])
-    #priority = np.array([3,0,0])
     print(f"Profile {i}: {priority}")
     con = Con.Conciliator(objectives=['Treasure','Time','Fuel'], R = baseline, filename=f"{i}", priority=priority)
     print(f"Preference: {con.preference}\n")
     print(f"Baseline: {baseline}")
 
     dst.render()
+    time.sleep(1)
     while not stop:
         if human:
             events = pygame.event.get()
@@ -141,10 +141,9 @@ def main():
         policy.append([json_action_x,json_action_y])
         previous_velo = dst.sub_vel.flatten()
         next_state, reward, done, debug_info = dst.step(action)
+        print(debug_info)
         
         next_velo = dst.sub_vel.flatten()
-        #if np.all(next_velo == 0.0) and np.any(previous_velo+np.array((json_action_x,json_action_y)) != next_velo):
-        #    sys.exit(f"Collision occurred with a policy {policy}!")
         current_state = next_state
         time_reward += reward[1]
         fuel_reward += reward[2]

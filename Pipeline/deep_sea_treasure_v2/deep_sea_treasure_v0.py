@@ -5,6 +5,7 @@
 from __future__ import annotations
 
 import gym
+gym.logger.set_level(40)
 import json
 import numpy as np
 import numpy.typing as npt
@@ -14,9 +15,9 @@ from typing import Any, cast, Dict, List, Optional, Set, Tuple, Union
 
 from jsonschema import Draft7Validator
 
-from deep_sea_treasure.deep_sea_treasure_v0_renderer import DeepSeaTreasureV0Renderer
-from deep_sea_treasure.theme import Theme
-from deep_sea_treasure.contract import contract
+from deep_sea_treasure_v2.deep_sea_treasure_v0_renderer import DeepSeaTreasureV0Renderer
+from deep_sea_treasure_v2.theme import Theme
+from deep_sea_treasure_v2.contract import contract
 
 
 class DeepSeaTreasureV0(gym.Env): #type: ignore[misc]
@@ -88,7 +89,7 @@ class DeepSeaTreasureV0(gym.Env): #type: ignore[misc]
 		# Observation is a 2 x (N + 1) matrix, if the environment has size N
 		# First column is the submarine's x (0) and y (1) velocity
 		# Next N columns represent the relative coordinates from the submarine to each treasure
-		self.observation_space = gym.spaces.Box(low=np.iinfo(np.int32).min, high=np.iinfo(np.int32).max, shape=(2, 1 + len(env_config["treasure_values"])), dtype=np.int32)
+		self.observation_space = gym.spaces.Box(low=np.iinfo(np.int32).min, high=np.iinfo(np.int32).max, shape=(2, 1 + len(env_config["treasure_values"])), dtype=np.float64)
 
 		# Dictionary
 		# This dictionary maps an (x, y) coordinate pair to the associated treasure
@@ -113,21 +114,10 @@ class DeepSeaTreasureV0(gym.Env): #type: ignore[misc]
 
 			seabed_coordinates.append((x, y))
 
-		seabed_coordinates = sorted(seabed_coordinates)
+		seabed_coordinates = sorted(seabed_coordinates, key=lambda tup: tup[0])
 
-		max_x: int = max([x for (x, y) in seabed_coordinates])
-
-		# 1 x N array
 		# This array contains the height of the seabed at every x-coordinate
-		self.seabed = np.ndarray(shape=(max_x + 1,), dtype=np.single)
-
-		seabed_index: int = 0
-
-		for x in range(max_x + 1):
-			if (seabed_coordinates[seabed_index][0] < x) and ((seabed_index + 1) < len(seabed_coordinates)):
-				seabed_index = seabed_index + 1
-
-			self.seabed[x] = seabed_coordinates[seabed_index][1]
+		self.seabed = np.array([coord[1] for coord in seabed_coordinates],dtype=np.single)
 
 		# Reward is a 2 x N matrix
 		# The maximum value is the highest possible reward, minimum value is determined by time-reward, which is infinite
@@ -136,13 +126,13 @@ class DeepSeaTreasureV0(gym.Env): #type: ignore[misc]
 		if env_config["implicit_collision_constraint"]:
 			reward_low -= 1.0
 
-		self.reward_space = gym.spaces.Box(low=reward_low, high=np.asarray([max(self.treasures.values()), -1.0]), shape=(2,), dtype=np.float32)
+		self.reward_space = gym.spaces.Box(low=reward_low, high=np.asarray([max(self.treasures.values()), -1.0]), shape=(2,), dtype=np.float64)
 
 		# Minimum/Maximum velocity:
 		self.max_vel = np.asarray([[float(env_config["max_velocity"])], [float(env_config["max_velocity"])]], dtype=np.int32)
 		self.min_vel = -np.asarray([[float(env_config["max_velocity"])], [float(env_config["max_velocity"])]], dtype=np.int32)
 
-		# Coordinates of the submarine are given in (x, y) form, top-left of the environment is (0, 0)
+		# Coordinates of the submarine are given as (x, y), top-left of the environment is (0, 0)
 		self.sub_pos = np.zeros((2, 1), dtype=np.int32)
 		self.sub_vel = np.zeros((2, 1), dtype=np.int32)
 
@@ -234,49 +224,54 @@ class DeepSeaTreasureV0(gym.Env): #type: ignore[misc]
 		# If after reduction, any element is True, return True, otherwise return False
 		return bool(np.any(red))
 
-	def __get_left_wall(self, x: int, y: int) -> int:
-		for x in range(int(x), -1, -1):
-			if self.seabed[x] < float(y):
-				return x
-
-		return 0
-
-	def __get_right_wall(self, x: int, y: int) -> int:
-		for x in range(int(x), self.seabed.shape[0]):
-			if self.seabed[x] < float(y):
-				return x
-
-		return self.seabed.shape[0]
-
-	def __get_bottom_wall(self, x: int) -> int:
-		return int(self.seabed[x])
-
-	def __collides_horizontal(self, next_pos: npt.NDArray[np.int32], left_wall: int, right_wall: int) -> bool:
-		if (next_pos[0] < 0) or ((self.seabed.shape[0] - 1) < next_pos[0]):
+	def __collides(self, next_pos: npt.NDArray[np.int32]) -> bool:
+		x, y = self.sub_pos[0][0], self.sub_pos[1][0]
+		x_next, y_next = next_pos[0][0], next_pos[1][0]
+		# If moving over the left wall
+		if x_next < 0:
 			return True
-		return bool(next_pos[0] < left_wall) or bool(right_wall < next_pos[0])
-
-	def __collides_vertical(self, next_pos: npt.NDArray[np.int32], bottom_wall: int) -> bool:
-		x, y = float(self.sub_pos[0]), -float(self.sub_pos[1])
-		x_next, y_next = float(next_pos[0]), -float(next_pos[1])
-		treasure_coords = np.array(list(self.treasures.keys()))
-		if (y > 0) or (y < -np.max(self.seabed)):
+		# If moving over the upper edge
+		if y_next < 0:
 			return True
-		elif (x,y) == (x_next,y_next):
+		# If moving over the right edge
+		if x_next > len(self.seabed) - 1:
+			return True
+		# If the submarine is not moving, no collision can occur
+		if (x,y) == (x_next,y_next):
 			return False
-		elif np.any((x_next < treasure_coords[:,0]) & (-y_next > treasure_coords[:,1])):
+		# If moving left, order the coordinates
+		if x_next < x:
+			x, x_next = x_next,x
+		indices = np.arange(0,len(self.seabed),1,dtype=int)
+		# The submarine ends up moving inside the seabed
+		if np.any((x_next <= indices) & (y_next > self.seabed)):
 			return True
-		elif np.any((x_next == treasure_coords[:,0]) & (-y_next == treasure_coords[:,1])):
-			return False
-		else:
-			a,b,c = y_next-y,-(x_next-x),(x_next-x)*y-(y_next-y)*x
-			dists = (-a*treasure_coords[:,0] - b*treasure_coords[:,1] + c) / np.sqrt(a**2+b**2)
-			return np.any((dists < 0) & (dists > -np.sqrt(2)/2))
+		# The submarine moves vertically and ends up inside the seabed
+		if x_next == x:
+			return y_next > self.seabed[int(x)]
+		# The submarine moves and a line from the previous location to 
+		# the new location intercepts the seabed closer than sqrt(2)/2 in Euclidean metric
+		# Line coefficient for a line ax+by+c=0 which goes through points (x,y) and (x_next,y_next)
+		a,b,c = y_next-y,-(x_next-x),(x_next-x)*y-(y_next-y)*x
+		# Consider only x-values between x and x_next
+		indices = indices[(indices >= x) & (indices <= x_next)]
+		# Directional distance to each seabed point inside the domain of the line,
+		# coordinates with larger y-xoordinates than the line have negative distance
+		# dists = np.abs(a*indices + b*self.seabed[indices] + c) / np.sqrt(a**2+b**2)
+		line = lambda x: -(a*x + c) / b
+		# if np.all(dists > 0):
+		# 	return False
+		# if np.any((dists <= 0) & (dists > -np.sqrt(2)/2)):
+		# 	return True
+		# If moving in a legal area
+		if not np.all(line(indices[:-1]) < self.seabed[indices][:-1]):
+			return True
+		if np.any(line(indices) > self.seabed[indices]):
+			return True
+		# Fail safe
+		#else:
+		return False
 
-	def __collides_diagonally(self, next_pos: npt.NDArray[np.int32]) -> bool:
-		seabed_y: int = int(self.seabed[next_pos[0]])
-
-		return bool(seabed_y < next_pos[1])
 
 	def step(self, action: Union[Tuple[int, int], Tuple[npt.NDArray[np.int32], npt.NDArray[np.int32]]]) -> Tuple[npt.NDArray[np.int32], npt.NDArray[np.single], bool, Dict[str, Any]]:
 		x_action, y_action = action
@@ -317,24 +312,7 @@ class DeepSeaTreasureV0(gym.Env): #type: ignore[misc]
 
 		next_pos = self.sub_pos + self.sub_vel
 
-		# Check if moving in a straight line would already cause a collision
-		left_wall: int = self.__get_left_wall(self.sub_pos[0], self.sub_pos[1])
-		right_wall: int = self.__get_right_wall(self.sub_pos[0], self.sub_pos[1])
-		bottom_wall: int = self.__get_bottom_wall(self.sub_pos[0])
-
-		horizontal_collision = self.__collides_horizontal(next_pos=next_pos, left_wall=left_wall, right_wall=right_wall)
-		vertical_collision = self.__collides_vertical(next_pos=next_pos, bottom_wall=bottom_wall)
-
-		diagonal_collision: bool = False
-
-		# Check if the resulting square is inaccessible
-		if (not horizontal_collision) and (not vertical_collision):
-			diagonal_collision = self.__collides_diagonally(next_pos=next_pos)
-
-		# Assert an invariant that diagonal collision can never be true is either of the other collisions are true
-		contract(False == ((horizontal_collision or vertical_collision) and diagonal_collision), "Diagonal collision ({0:1d}) can only be true if neither horizontal ({1:1d}) nor vertical ({2:1d}) collisions are true", int(diagonal_collision), int(horizontal_collision), int(vertical_collision))
-
-		collision: bool = horizontal_collision or vertical_collision or diagonal_collision
+		collision: bool = self.__collides(next_pos)
 
 		# If we clip in either direction, zero the velocity
 		if collision:
@@ -347,10 +325,8 @@ class DeepSeaTreasureV0(gym.Env): #type: ignore[misc]
 
 		# Indicate if this action caused a collision
 		debug_dict: Dict[str, Any] = self.__debug()
-		debug_dict["collision"]["horizontal"] = horizontal_collision
-		debug_dict["collision"]["vertical"] = vertical_collision
-		debug_dict["collision"]["diagonal"] = diagonal_collision
-
+		debug_dict["collision"] = collision
+		
 		return self.__observe(), self.__get_rewards(collides=collision), self.__is_done(), debug_dict
 
 	def reset(self) -> npt.NDArray[np.int32]:
