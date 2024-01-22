@@ -15,7 +15,7 @@ Note: the code is designed in a Windows environment using the PyPI package insta
 ### Usage
 
 1. Make sure the prerequisites are installed
-2. Clone or download the repo
+2. Clone or download the repository
 3. Run `sh commands.sh` in the command line in the root directory
 4. Success!
 
