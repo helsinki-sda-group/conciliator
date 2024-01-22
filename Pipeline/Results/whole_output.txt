@@ -1,327 +1,3 @@
-> python3 dst.py
-
-[codecarbon INFO @ 02:53:50] offline tracker init
-[codecarbon INFO @ 02:53:50] [setup] RAM Tracking...       
-[codecarbon INFO @ 02:53:50] [setup] GPU Tracking...       
-[codecarbon INFO @ 02:53:50] Tracking Nvidia GPU via pynvml
-[codecarbon INFO @ 02:53:50] [setup] CPU Tracking...
-[codecarbon WARNING @ 02:53:50] No CPU tracking mode found. Falling back on CPU constant mode.
-[codecarbon WARNING @ 02:53:51] We saw that you have a Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz but we don't know it. Please contact us.
-[codecarbon INFO @ 02:53:51] CPU Model on constant consumption mode: Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz
-[codecarbon INFO @ 02:53:51] >>> Tracker's metadata:
-[codecarbon INFO @ 02:53:51]   Platform system: Windows-10-10.0.19041-SP0
-[codecarbon INFO @ 02:53:51]   Python version: 3.9.2
-[codecarbon INFO @ 02:53:51]   CodeCarbon version: 2.3.2
-[codecarbon INFO @ 02:53:51]   Available RAM : 15.848 GB
-[codecarbon INFO @ 02:53:51]   CPU count: 8
-[codecarbon INFO @ 02:53:51]   CPU model: Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz
-[codecarbon INFO @ 02:53:51]   GPU count: 1
-[codecarbon INFO @ 02:53:51]   GPU model: 1 x GeForce GTX 1650 with Max-Q Design
-Using DST 2.0.2 (8739bdc51aa9e2f5710897d3ef40f69e2b870e8d)
-~Python\Python39\lib\site-packages\gym\spaces\box.py:127: UserWarning: WARN: Box bound precision lowered by casting to float32
-  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
-
-Hello! Conciliator steering has started.
-
-Profile 0: [0.1 0.2 0.7]
-Preference: [25.80775684 -4.55894461 -0.26852819]
-
-[codecarbon INFO @ 02:54:06] Energy consumed for RAM : 0.000025 kWh. RAM Power : 5.942914009094238 W
-[codecarbon INFO @ 02:54:06] Energy consumed for all GPUs : 0.000015 kWh. Total GPU Power : 3.662104235885296 W
-[codecarbon INFO @ 02:54:06] Energy consumed for all CPUs : 0.000177 kWh. Total CPU Power : 42.5 W
-[codecarbon INFO @ 02:54:06] 0.000217 kWh of electricity used since the beginning.
-[codecarbon INFO @ 02:54:21] Energy consumed for RAM : 0.000050 kWh. RAM Power : 5.942914009094238 W
-[codecarbon INFO @ 02:54:21] Energy consumed for all GPUs : 0.000031 kWh. Total GPU Power : 3.668358678569656 W
-[codecarbon INFO @ 02:54:21] Energy consumed for all CPUs : 0.000354 kWh. Total CPU Power : 42.5 W
-[codecarbon INFO @ 02:54:21] 0.000435 kWh of electricity used since the beginning.
-[codecarbon INFO @ 02:54:36] Energy consumed for RAM : 0.000074 kWh. RAM Power : 5.942914009094238 W
-[codecarbon INFO @ 02:54:36] Energy consumed for all GPUs : 0.000046 kWh. Total GPU Power : 3.6466851954906807 W
-[codecarbon INFO @ 02:54:36] Energy consumed for all CPUs : 0.000531 kWh. Total CPU Power : 42.5 W
-[codecarbon INFO @ 02:54:36] 0.000651 kWh of electricity used since the beginning.
-Actions: [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 
-0], [0, 0], [0, 0], [0, 0]]
-
-Difference between the preferred and received rewards:
-          received  preferred  difference
-treasure       0.0     25.808     -25.808
-time         -50.0     -4.559     -45.441
-fuel           0.0     -0.269       0.269
-
-Difference to Pareto optimal solutions
-    Same treasure  Ratio of same actions
-0           False                   0.00
-1           False                   0.12
-2           False                   0.10
-3           False                   0.06
-4           False                   0.12
-5           False                   0.16
-6           False                   0.18
-7           False                   0.06
-8           False                   0.00
-9           False                   0.02
-11          False                   0.00
-12          False                   0.00
-13          False                   0.02
-14          False                   0.06
-15          False                   0.04
-16          False                   0.00
-17          False                   0.00
-18          False                   0.00
-19          False                   0.00
-20          False                   0.02
-21          False                   0.00
-22          False                   0.00
-23          False                   0.00
-24          False                   0.00
-25           True                   1.00
-
-Conciliator steering has ended. Bye!
-
-
-[codecarbon INFO @ 02:54:44] Energy consumed for RAM : 0.000087 kWh. RAM Power : 5.942914009094238 W
-[codecarbon INFO @ 02:54:44] Energy consumed for all GPUs : 0.000054 kWh. Total GPU Power : 3.584103358861923 W
-[codecarbon INFO @ 02:54:44] Energy consumed for all CPUs : 0.000624 kWh. Total CPU Power : 42.5 W
-[codecarbon INFO @ 02:54:44] 0.000765 kWh of electricity used since the beginning.
-Emissions: 0.11138472935350291 g of CO2
-
-====================
-
-> python3 dst.py
-
-[codecarbon INFO @ 02:57:13] offline tracker init
-[codecarbon INFO @ 02:57:13] [setup] RAM Tracking...
-[codecarbon INFO @ 02:57:13] [setup] GPU Tracking...
-[codecarbon INFO @ 02:57:13] Tracking Nvidia GPU via pynvml
-[codecarbon INFO @ 02:57:13] [setup] CPU Tracking...
-[codecarbon WARNING @ 02:57:13] No CPU tracking mode found. Falling back on CPU constant mode.
-[codecarbon WARNING @ 02:57:14] We saw that you have a Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz but we don't know it. Please contact us.
-[codecarbon INFO @ 02:57:14] CPU Model on constant consumption mode: Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz
-[codecarbon INFO @ 02:57:14] >>> Tracker's metadata:
-[codecarbon INFO @ 02:57:14]   Platform system: Windows-10-10.0.19041-SP0
-[codecarbon INFO @ 02:57:14]   Python version: 3.9.2
-[codecarbon INFO @ 02:57:14]   CodeCarbon version: 2.3.2
-[codecarbon INFO @ 02:57:14]   Available RAM : 15.848 GB
-[codecarbon INFO @ 02:57:14]   CPU count: 8
-[codecarbon INFO @ 02:57:14]   CPU model: Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz
-[codecarbon INFO @ 02:57:14]   GPU count: 1
-[codecarbon INFO @ 02:57:14]   GPU model: 1 x GeForce GTX 1650 with Max-Q Design
-Using DST 2.0.2 (8739bdc51aa9e2f5710897d3ef40f69e2b870e8d)
-Python\Python39\lib\site-packages\gym\spaces\box.py:127: UserWarning: WARN: Box bound precision lowered by casting to float32
-  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
-
-Hello! Conciliator steering has started.
-
-Profile 1: [0.98 0.01 0.01]
-Preference: [105.53762615 -15.         -28.9274384 ]
-
-Actions: [[3, 0], [2, 3], [-2, 2], [-2, -1]]
-
-Difference between the preferred and received rewards:
-          received  preferred  difference
-treasure     124.0    105.538      18.462
-time          -4.0    -15.000      11.000
-fuel         -35.0    -28.927      -6.073
-
-Difference to Pareto optimal solutions
-    Same treasure  Ratio of same actions
-0           False                    0.0
-1            True                    0.0
-2           False                    0.0
-3           False                    0.0
-4           False                    0.0
-5           False                    0.0
-6            True                    0.0
-7           False                    0.0
-8           False                    0.0
-9            True                    0.0
-10          False                    0.0
-11          False                    0.0
-12          False                    0.0
-13          False                    0.0
-15          False                    0.0
-16          False                    0.0
-17           True                    0.0
-18           True                    0.0
-19          False                    0.0
-20          False                    0.0
-21           True                    0.0
-22          False                    0.0
-23          False                    0.0
-24          False                    0.0
-25          False                    0.0
-
-Conciliator steering has ended. Bye!
-
-[codecarbon INFO @ 02:57:20] Energy consumed for RAM : 0.000009 kWh. RAM Power : 5.942914009094238 W
-[codecarbon INFO @ 02:57:20] Energy consumed for all GPUs : 0.000006 kWh. Total GPU Power : 3.648119638886158 W
-[codecarbon INFO @ 02:57:20] Energy consumed for all CPUs : 0.000065 kWh. Total CPU Power : 42.5 W
-[codecarbon INFO @ 02:57:20] 0.000080 kWh of electricity used since the beginning.
-Emissions: 0.011667870878041326 g of CO2
-
-====================
-
-> python3 dst.py
-
-[codecarbon INFO @ 02:59:22] offline tracker init
-[codecarbon INFO @ 02:59:22] [setup] RAM Tracking...
-[codecarbon INFO @ 02:59:22] [setup] GPU Tracking...
-[codecarbon INFO @ 02:59:22] Tracking Nvidia GPU via pynvml
-[codecarbon INFO @ 02:59:22] [setup] CPU Tracking...
-[codecarbon WARNING @ 02:59:22] No CPU tracking mode found. Falling back on CPU constant mode.
-[codecarbon WARNING @ 02:59:23] We saw that you have a Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz but we don't know it. Please contact us.
-[codecarbon INFO @ 02:59:23] CPU Model on constant consumption mode: Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz
-[codecarbon INFO @ 02:59:23] >>> Tracker's metadata:
-[codecarbon INFO @ 02:59:23]   Platform system: Windows-10-10.0.19041-SP0
-[codecarbon INFO @ 02:59:23]   Python version: 3.9.2
-[codecarbon INFO @ 02:59:23]   CodeCarbon version: 2.3.2
-[codecarbon INFO @ 02:59:23]   Available RAM : 15.848 GB
-[codecarbon INFO @ 02:59:23]   CPU count: 8
-[codecarbon INFO @ 02:59:23]   CPU model: Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz
-[codecarbon INFO @ 02:59:23]   GPU count: 1
-[codecarbon INFO @ 02:59:23]   GPU model: 1 x GeForce GTX 1650 with Max-Q Design
-Using DST 2.0.2 (8739bdc51aa9e2f5710897d3ef40f69e2b870e8d)
-Python\Python39\lib\site-packages\gym\spaces\box.py:127: UserWarning: WARN: Box bound precision lowered by casting to float32
-  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
-
-Hello! Conciliator steering has started.
-
-Profile 2: [0.02 0.49 0.49]
-Preference: [ 3.84060081  0.         -0.26852819]
-
-[codecarbon INFO @ 02:59:38] Energy consumed for RAM : 0.000025 kWh. RAM Power : 5.942914009094238 W
-[codecarbon INFO @ 02:59:38] Energy consumed for all GPUs : 0.000015 kWh. Total GPU Power : 3.6350156452024427 W
-[codecarbon INFO @ 02:59:38] Energy consumed for all CPUs : 0.000177 kWh. Total CPU Power : 42.5 W
-[codecarbon INFO @ 02:59:38] 0.000217 kWh of electricity used since the beginning.
-[codecarbon INFO @ 02:59:53] Energy consumed for RAM : 0.000050 kWh. RAM Power : 5.942914009094238 W
-[codecarbon INFO @ 02:59:53] Energy consumed for all GPUs : 0.000030 kWh. Total GPU Power : 3.642165918106088 W
-[codecarbon INFO @ 02:59:53] Energy consumed for all CPUs : 0.000355 kWh. Total CPU Power : 42.5 W
-[codecarbon INFO @ 02:59:53] 0.000435 kWh of electricity used since the beginning.
-[codecarbon INFO @ 03:00:08] Energy consumed for RAM : 0.000074 kWh. RAM Power : 5.942914009094238 W
-[codecarbon INFO @ 03:00:08] Energy consumed for all GPUs : 0.000046 kWh. Total GPU Power : 3.6678036136627687 W
-[codecarbon INFO @ 03:00:08] Energy consumed for all CPUs : 0.000531 kWh. Total CPU Power : 42.5 W
-[codecarbon INFO @ 03:00:08] 0.000651 kWh of electricity used since the beginning.
-Actions: [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 
-0], [0, 0], [0, 0], [0, 0]]
-
-Difference between the preferred and received rewards:
-          received  preferred  difference
-treasure       0.0      3.841      -3.841
-time         -50.0      0.000     -50.000
-fuel           0.0     -0.269       0.269
-
-Difference to Pareto optimal solutions
-    Same treasure  Ratio of same actions
-0           False                   0.00
-1           False                   0.12
-2           False                   0.10
-3           False                   0.06
-4           False                   0.12
-5           False                   0.16
-6           False                   0.18
-7           False                   0.06
-8           False                   0.00
-9           False                   0.02
-10          False                   0.00
-11          False                   0.00
-12          False                   0.00
-13          False                   0.02
-14          False                   0.06
-15          False                   0.04
-16          False                   0.00
-17          False                   0.00
-18          False                   0.00
-19          False                   0.00
-20          False                   0.02
-21          False                   0.00
-22          False                   0.00
-23          False                   0.00
-24          False                   0.00
-25           True                   1.00
-
-Conciliator steering has ended. Bye!
-
-
-[codecarbon INFO @ 03:00:16] Energy consumed for RAM : 0.000087 kWh. RAM Power : 5.942914009094238 W
-[codecarbon INFO @ 03:00:16] Energy consumed for all GPUs : 0.000053 kWh. Total GPU Power : 3.6565901890574195 W
-[codecarbon INFO @ 03:00:16] Energy consumed for all CPUs : 0.000623 kWh. Total CPU Power : 42.5 W
-[codecarbon INFO @ 03:00:16] 0.000763 kWh of electricity used since the beginning.
-Emissions: 0.11105026704958712 g of CO2
-
-====================
-
-> python3 dst.py
-[codecarbon INFO @ 02:57:48] [setup] RAM Tracking...
-[codecarbon INFO @ 02:57:48] [setup] GPU Tracking...
-[codecarbon INFO @ 02:57:48] Tracking Nvidia GPU via pynvml
-[codecarbon INFO @ 02:57:48] [setup] CPU Tracking...
-[codecarbon WARNING @ 02:57:48] No CPU tracking mode found. Falling back on CPU constant mode.
-[codecarbon WARNING @ 02:57:49] We saw that you have a Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz but we don't know it. Please contact us.
-[codecarbon INFO @ 02:57:49] CPU Model on constant consumption mode: Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz
-[codecarbon INFO @ 02:57:49] >>> Tracker's metadata:
-[codecarbon INFO @ 02:57:49]   Platform system: Windows-10-10.0.19041-SP0
-[codecarbon INFO @ 02:57:49]   Python version: 3.9.2
-[codecarbon INFO @ 02:57:49]   CodeCarbon version: 2.3.2
-[codecarbon INFO @ 02:57:49]   Available RAM : 15.848 GB
-[codecarbon INFO @ 02:57:49]   CPU count: 8
-[codecarbon INFO @ 02:57:49]   CPU model: Intel(R) Core(TM) i5-9300H CPU @ 2.40GHz
-[codecarbon INFO @ 02:57:49]   GPU count: 1
-[codecarbon INFO @ 02:57:49]   GPU model: 1 x GeForce GTX 1650 with Max-Q Design
-Using DST 2.0.2 (8739bdc51aa9e2f5710897d3ef40f69e2b870e8d)
-Python\Python39\lib\site-packages\gym\spaces\box.py:127: UserWarning: WARN: Box bound precision lowered by casting to float32
-  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
-
-Hello! Conciliator steering has started.
-
-Profile 3: [0.2 0.4 0.4]
-Preference: [24.45017431 -2.04560037 -2.04560037]
-
-Actions: [[1, 1], [0, 0], [0, 0], [1, 0]]
-
-Difference between the preferred and received rewards:
-          received  preferred  difference
-treasure      16.0     24.450      -8.450
-time          -4.0     -2.046      -1.954
-fuel          -3.0     -2.046      -0.954
-
-Difference to Pareto optimal solutions
-    Same treasure  Ratio of same actions
-0           False                   0.00
-1           False                   0.50
-2           False                   0.50
-3           False                   0.50
-4           False                   0.25
-5           False                   0.25
-6           False                   0.25
-7            True                   0.25
-8           False                   0.00
-9           False                   0.00
-10          False                   0.00
-11          False                   0.00
-12          False                   0.25
-13          False                   0.50
-15           True                   1.00
-16           True                   0.25
-17          False                   0.25
-18          False                   0.25
-19          False                   0.00
-20          False                   0.25
-21          False                   0.00
-22           True                   0.00
-23          False                   0.00
-24          False                   0.00
-25          False                   0.50
-
-Conciliator steering has ended. Bye!
-
-
-[codecarbon INFO @ 02:57:55] Energy consumed for RAM : 0.000009 kWh. RAM Power : 5.942914009094238 W
-[codecarbon INFO @ 02:57:55] Energy consumed for all GPUs : 0.000006 kWh. Total GPU Power : 3.647196992282579 W
-[codecarbon INFO @ 02:57:55] Energy consumed for all CPUs : 0.000066 kWh. Total CPU Power : 42.5 W
-[codecarbon INFO @ 02:57:55] 0.000081 kWh of electricity used since the beginning.
-Emissions: 0.011753387825781822 g of CO2
-
-====================
-
 Using DST 2.0.2 (8739bdc51aa9e2f5710897d3ef40f69e2b870e8d)
 
 Hello! Conciliator steering has started.
@@ -330,199 +6,47 @@ Profile 0: [0.1 0.2 0.7]
 Preference: [25.80775684 -4.55894461 -0.26852819]
 
 Baseline: [57.8  -5.32 -7.2 ]
-(4.533473662533404e-05, -1.0, 0.0)
-0.8172773759904473
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 1, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -2.0, 0.0)
-0.8314738722657721
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 2, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -3.0, 0.0)
-0.8445317926119096
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 3, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -4.0, 0.0)
-0.8565237248417308
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 4, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -5.0, 0.0)
-0.8580821708829742
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 5, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -6.0, 0.0)
-0.8482335922673196
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 6, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -7.0, 0.0)
-0.8394196783506898
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 7, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -8.0, 0.0)
-0.8315234714227617
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 8, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -9.0, 0.0)
-0.8244427183419956
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 9, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -10.0, 0.0)
-0.8180877637160356
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 10, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -11.0, 0.0)
-0.8123797879449899
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 11, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -12.0, 0.0)
-0.8072493267244691
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 12, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -13.0, 0.0)
-0.8026350214073357
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 13, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -14.0, 0.0)
-0.7984825596352448
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 14, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -15.0, 0.0)
-0.7947437735224603
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 15, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -16.0, 0.0)
-0.7913758688940408
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 16, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -17.0, 0.0)
-0.7883407640188159
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 17, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -18.0, 0.0)
-0.785604520216899
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 18, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -19.0, 0.0)
-0.7831368498781065
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 19, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -20.0, 0.0)
-0.7809106899681418
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 20, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -21.0, 0.0)
-0.778901831152689
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 21, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -22.0, 0.0)
-0.7770885943359246
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 22, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -23.0, 0.0)
-0.7754515477677438
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 23, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -24.0, 0.0)
-0.7739732589846986
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 24, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -25.0, 0.0)
-0.7726380767617262
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 25, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -26.0, 0.0)
-0.7714319390035531
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 26, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -27.0, 0.0)
-0.7703422031266619
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 27, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -28.0, 0.0)
-0.7693574959992042
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 28, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -29.0, 0.0)
-0.7684675809366814
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 29, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -30.0, 0.0)
-0.7676632396112074
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 30, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -31.0, 0.0)
-0.7669361670343167
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 31, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -32.0, 0.0)
-0.7662788780277501
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 32, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -33.0, 0.0)
-0.76568462381171
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 33, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -34.0, 0.0)
-0.7651473175224384
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 34, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -35.0, 0.0)
-0.7646614676261252
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 35, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -36.0, 0.0)
-0.7642221183285873
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 36, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -37.0, 0.0)
-0.763824796193568
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 37, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -38.0, 0.0)
-0.7634654622799177
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 38, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -39.0, 0.0)
-0.7631404691918541
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 39, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -40.0, 0.0)
-0.7628465225090337
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 40, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -41.0, 0.0)
-0.7625806461260294
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 41, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -42.0, 0.0)
-0.7623401510854381
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 42, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -43.0, 0.0)
-0.7621226075364539
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 43, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -44.0, 0.0)
-0.7619258194923253
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 44, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -45.0, 0.0)
-0.7617478020965408
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 45, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -46.0, 0.0)
-0.7615867611395606
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 46, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -47.0, 0.0)
-0.7614410745960342
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 47, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -48.0, 0.0)
-0.7613092759772488
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 48, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -49.0, 0.0)
-0.7611900393154514
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 49, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(4.533473662533404e-05, -50.0, 0.0)
-0.7610821656160748
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 0, 'y': 0}, 'time': {'current': 50, 'max': 50}, 'velocity': {'x': 0, 'y': 0, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
 Actions: [[0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0], [0, 0]]
 
-Difference between the preferred and received rewards:
+Difference between the preferred and received rewards and Pareto optimal policies:
           received  preferred  difference
 treasure       0.0     25.808     -25.808
 time         -50.0     -4.559     -45.441
 fuel           0.0     -0.269       0.269
 
 Difference to Pareto optimal solutions
-    Treasure difference  ...  Ratio of same actions
-0                   1.0  ...                   0.00
-1                 124.0  ...                   0.12
-2                  74.0  ...                   0.10
-3                  50.0  ...                   0.06
-4                  50.0  ...                   0.12
-5                  74.0  ...                   0.16
-6                 124.0  ...                   0.18
-7                  16.0  ...                   0.06
-8                  50.0  ...                   0.00
-9                 124.0  ...                   0.02
-10                 74.0  ...                   0.00
-11                 74.0  ...                   0.00
-12                  2.0  ...                   0.00
-13                  3.0  ...                   0.02
-14                  8.0  ...                   0.06
-15                 16.0  ...                   0.04
-16                 16.0  ...                   0.00
-17                124.0  ...                   0.00
-18                124.0  ...                   0.00
-19                  3.0  ...                   0.00
-20                 50.0  ...                   0.02
-21                124.0  ...                   0.00
-22                 16.0  ...                   0.00
-23                 74.0  ...                   0.00
-24                 50.0  ...                   0.00
-25                  0.0  ...                   1.00
-
-[26 rows x 4 columns]
+    treasure   time  fuel  Pareto policy ratio
+0        1.0   49.0  -1.0                 0.00
+1      124.0   40.0  -4.0                 0.12
+2       74.0   41.0  -4.0                 0.10
+3       50.0   43.0  -4.0                 0.06
+4       50.0   41.0  -3.0                 0.12
+5       74.0   39.0  -3.0                 0.16
+6      124.0   38.0  -3.0                 0.18
+7       16.0   45.0  -2.0                 0.06
+8       50.0   45.0  -6.0                 0.00
+9      124.0   43.0  -6.0                 0.02
+10      74.0   44.0  -7.0                 0.00
+11      74.0   45.0 -11.0                 0.00
+12       2.0   48.0  -3.0                 0.00
+13       3.0   47.0  -3.0                 0.02
+14       8.0   46.0  -2.0                 0.06
+15      16.0   46.0  -3.0                 0.04
+16      16.0   47.0  -4.0                 0.00
+17     124.0   44.0  -8.0                 0.00
+18     124.0   45.0 -13.0                 0.00
+19       3.0   48.0 -10.0                 0.00
+20      50.0   46.0  -8.0                 0.02
+21     124.0   46.0 -22.0                 0.00
+22      16.0   48.0 -15.0                 0.00
+23      74.0   46.0 -17.0                 0.00
+24      50.0   47.0 -18.0                 0.00
+25       0.0 -950.0   0.0                 1.00
 
 Conciliator steering has ended. Bye!
 
 
-Emissions: 0.11069828223242248 g of CO2
+Emissions: 0.11018351735585118 g of CO2
 
 
 ====================
@@ -535,61 +59,47 @@ Profile 1: [0.98 0.01 0.01]
 Preference: [115.6       -28.9274384 -28.9274384]
 
 Baseline: [57.8  -5.32 -7.2 ]
-(0.0002802808464656507, -1.0, -18.0)
-0.003434172960491063
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': -9, 'y': -9}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 3, 'y': 3}, 'time': {'current': 1, 'max': 50}, 'velocity': {'x': 3, 'y': 3, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(0.04159736585991147, -2.0, -23.0)
-0.003446337705329522
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': -1, 'y': -4}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 7, 'y': 4}, 'time': {'current': 2, 'max': 50}, 'velocity': {'x': 4, 'y': 1, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(16.781575121339976, -3.0, -36.0)
-0.007834346894864163
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': -4, 'y': -9}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 9, 'y': 8}, 'time': {'current': 3, 'max': 50}, 'velocity': {'x': 2, 'y': 4, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(124.0, -4.0, -44.0)
-0.6582434527781579
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': -4, 'y': -4}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 9, 'y': 10}, 'time': {'current': 4, 'max': 50}, 'velocity': {'x': 0, 'y': 2, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
 Actions: [[3, 3], [1, -2], [-2, 3], [-2, -2]]
 
-Difference between the preferred and received rewards:
+Difference between the preferred and received rewards and Pareto optimal policies:
           received  preferred  difference
 treasure     124.0    115.600       8.400
 time          -4.0    -28.927      24.927
 fuel         -44.0    -28.927     -15.073
 
 Difference to Pareto optimal solutions
-    Treasure difference  ...  Ratio of same actions
-0                -123.0  ...                    0.0
-1                   0.0  ...                    0.0
-2                 -50.0  ...                    0.0
-3                 -74.0  ...                    0.0
-4                 -74.0  ...                    0.0
-5                 -50.0  ...                    0.0
-6                   0.0  ...                    0.0
-7                -108.0  ...                    0.0
-8                 -74.0  ...                    0.0
-9                   0.0  ...                    0.0
-10                -50.0  ...                    0.0
-11                -50.0  ...                    0.0
-12               -122.0  ...                    0.0
-13               -121.0  ...                    0.0
-14               -116.0  ...                    0.0
-15               -108.0  ...                    0.0
-16               -108.0  ...                    0.0
-17                  0.0  ...                    0.0
-18                  0.0  ...                    0.0
-19               -121.0  ...                    0.0
-20                -74.0  ...                    0.0
-21                  0.0  ...                    0.0
-22               -108.0  ...                    0.0
-23                -50.0  ...                    0.0
-24                -74.0  ...                    0.0
-25               -124.0  ...                    0.0
-
-[26 rows x 4 columns]
+    treasure   time  fuel  Pareto policy ratio
+0     -123.0    3.0  43.0                  0.0
+1        0.0   -6.0  40.0                  0.0
+2      -50.0   -5.0  40.0                  0.0
+3      -74.0   -3.0  40.0                  0.0
+4      -74.0   -5.0  41.0                  0.0
+5      -50.0   -7.0  41.0                  0.0
+6        0.0   -8.0  41.0                  0.0
+7     -108.0   -1.0  42.0                  0.0
+8      -74.0   -1.0  38.0                  0.0
+9        0.0   -3.0  38.0                  0.0
+10     -50.0   -2.0  37.0                  0.0
+11     -50.0   -1.0  33.0                  0.0
+12    -122.0    2.0  41.0                  0.0
+13    -121.0    1.0  41.0                  0.0
+14    -116.0    0.0  42.0                  0.0
+15    -108.0    0.0  41.0                  0.0
+16    -108.0    1.0  40.0                  0.0
+17       0.0   -2.0  36.0                  0.0
+18       0.0   -1.0  31.0                  0.0
+19    -121.0    2.0  34.0                  0.0
+20     -74.0    0.0  36.0                  0.0
+21       0.0    0.0  22.0                  0.0
+22    -108.0    2.0  29.0                  0.0
+23     -50.0    0.0  27.0                  0.0
+24     -74.0    1.0  26.0                  0.0
+25    -124.0 -996.0  44.0                  0.0
 
 Conciliator steering has ended. Bye!
 
 
-Emissions: 0.012542008076281228 g of CO2
+Emissions: 0.012351764374505596 g of CO2
 
 
 ====================
@@ -602,61 +112,47 @@ Profile 2: [0.2 0.4 0.4]
 Preference: [24.45017431 -2.04560037 -2.04560037]
 
 Baseline: [57.8  -5.32 -7.2 ]
-(0.0003349809121548392, -1.0, -2.0)
-0.7543332642905791
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': -1, 'y': -1}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 1, 'y': 1}, 'time': {'current': 1, 'max': 50}, 'velocity': {'x': 1, 'y': 1, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(0.0024751927519830667, -2.0, -2.0)
-0.7807838363892226
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 2, 'y': 2}, 'time': {'current': 2, 'max': 50}, 'velocity': {'x': 1, 'y': 1, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(0.018289338100069424, -3.0, -2.0)
-0.7592046835602242
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 3, 'y': 3}, 'time': {'current': 3, 'max': 50}, 'velocity': {'x': 1, 'y': 1, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
-(0.1351409452337227, -4.0, -2.0)
-0.7389576872644298
-{'env': 'FuelWrapper', 'action_space_midpoint': 3, 'fuel_cost': {'x': 0, 'y': 0}, 'inner': {'env': 'DeepSeaTreasureV0', 'treasures': 10, 'position': {'x': 4, 'y': 4}, 'time': {'current': 4, 'max': 50}, 'velocity': {'x': 1, 'y': 1, 'max_x': 4, 'max_y': 4, 'min_x': -4, 'min_y': -4}, 'collision': False}}
 Actions: [[1, 1], [0, 0], [0, 0], [0, 0]]
 
-Difference between the preferred and received rewards:
+Difference between the preferred and received rewards and Pareto optimal policies:
           received  preferred  difference
 treasure       8.0     24.450     -16.450
 time          -4.0     -2.046      -1.954
 fuel          -2.0     -2.046       0.046
 
 Difference to Pareto optimal solutions
-    Treasure difference  ...  Ratio of same actions
-0                  -7.0  ...                   0.00
-1                 116.0  ...                   0.75
-2                  66.0  ...                   0.75
-3                  42.0  ...                   0.50
-4                  42.0  ...                   0.50
-5                  66.0  ...                   0.50
-6                 116.0  ...                   0.50
-7                   8.0  ...                   0.50
-8                  42.0  ...                   0.00
-9                 116.0  ...                   0.00
-10                 66.0  ...                   0.00
-11                 66.0  ...                   0.00
-12                 -6.0  ...                   0.25
-13                 -5.0  ...                   0.50
-14                  0.0  ...                   1.00
-15                  8.0  ...                   0.75
-16                  8.0  ...                   0.25
-17                116.0  ...                   0.25
-18                116.0  ...                   0.25
-19                 -5.0  ...                   0.00
-20                 42.0  ...                   0.25
-21                116.0  ...                   0.00
-22                  8.0  ...                   0.00
-23                 66.0  ...                   0.00
-24                 42.0  ...                   0.00
-25                 -8.0  ...                   0.75
-
-[26 rows x 4 columns]
+    treasure   time  fuel  Pareto policy ratio
+0       -7.0    3.0   1.0                 0.00
+1      116.0   -6.0  -2.0                 0.75
+2       66.0   -5.0  -2.0                 0.75
+3       42.0   -3.0  -2.0                 0.50
+4       42.0   -5.0  -1.0                 0.50
+5       66.0   -7.0  -1.0                 0.50
+6      116.0   -8.0  -1.0                 0.50
+7        8.0   -1.0   0.0                 0.50
+8       42.0   -1.0  -4.0                 0.00
+9      116.0   -3.0  -4.0                 0.00
+10      66.0   -2.0  -5.0                 0.00
+11      66.0   -1.0  -9.0                 0.00
+12      -6.0    2.0  -1.0                 0.25
+13      -5.0    1.0  -1.0                 0.50
+14       0.0    0.0   0.0                 1.00
+15       8.0    0.0  -1.0                 0.75
+16       8.0    1.0  -2.0                 0.25
+17     116.0   -2.0  -6.0                 0.25
+18     116.0   -1.0 -11.0                 0.25
+19      -5.0    2.0  -8.0                 0.00
+20      42.0    0.0  -6.0                 0.25
+21     116.0    0.0 -20.0                 0.00
+22       8.0    2.0 -13.0                 0.00
+23      66.0    0.0 -15.0                 0.00
+24      42.0    1.0 -16.0                 0.00
+25      -8.0 -996.0   2.0                 0.75
 
 Conciliator steering has ended. Bye!
 
 
-Emissions: 0.012469230749567576 g of CO2
+Emissions: 0.012417455115223902 g of CO2
 
 
 ====================

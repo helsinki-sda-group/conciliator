@@ -16,7 +16,6 @@ import conciliator as Con
 import approximator as App
 import json
 from codecarbon import OfflineEmissionsTracker
-#import warnings
 
 def read_paretos(file):
     f = open(file)
@@ -50,10 +49,10 @@ def print_results(received, preferred, actions, pareto_front, pareto_rew_matrix)
     rews = {'received': received, 'preferred': preferred, 'difference': received-preferred}
     rew_df = pd.DataFrame(data=rews, index=labels)
     pd.set_option("display.precision", 3)
-    print("\nDifference between the preferred and received rewards:")
+    print("\nDifference between the preferred and received rewards and Pareto optimal policies:")
     print(rew_df)
     rew_diffs = np.subtract(pareto_rew_matrix, np.reshape(received, (1,3)))
-    pareto_sim = pd.DataFrame(data={"Treasure difference": rew_diffs.iloc[:,0], "Time difference": rew_diffs.iloc[:,1], "Fuel difference": rew_diffs.iloc[:,2]})
+    pareto_sim = pd.DataFrame(data={labels[0]: rew_diffs.iloc[:,0], labels[1]: rew_diffs.iloc[:,1], labels[2]: rew_diffs.iloc[:,2]})
     n = len(actions)
     metric = 0
     metrics = []
@@ -64,7 +63,7 @@ def print_results(received, preferred, actions, pareto_front, pareto_rew_matrix)
                 metric +=1
         metrics.append(metric/n)
         metric = 0
-    pareto_sim["Ratio of same actions"] = metrics
+    pareto_sim["Pareto policy ratio"] = metrics
     print("\nDifference to Pareto optimal solutions")
     print(pareto_sim)
 
@@ -141,7 +140,6 @@ def main():
         policy.append([json_action_x,json_action_y])
         previous_velo = dst.sub_vel.flatten()
         next_state, reward, done, debug_info = dst.step(action)
-        print(debug_info)
         
         next_velo = dst.sub_vel.flatten()
         current_state = next_state

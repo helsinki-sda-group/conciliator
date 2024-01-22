@@ -138,9 +138,7 @@ class Approximator():
             utilities.append(pred_utility)
         action_ind = np.argmax(utilities)
         pred_reward = self.reward_prediction(dst,state,action_ind,cumulative_reward,preference)
-        print(pred_reward)
         pred_utility = self.scalarisation(pred_reward, priority, preference)
-        print(pred_utility)
         action = self.acceleration(action_ind)
         return action
 
