@@ -166,7 +166,7 @@ def main():
 
     # Emissions
     emissions = tracker.stop()*1000
-    print(f"Emissions: {emissions} g of CO2")
+    print(f"Emissions: {emissions} kg of CO2")
 
 
 if __name__ == "__main__":
