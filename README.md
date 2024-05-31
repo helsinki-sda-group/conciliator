@@ -1,6 +1,6 @@
 # Conciliator steering
 
-The project is a code implementation for the TCML paper "Conciliator steering: Imposing user preference in MORL decision-making problems". The code enables the user to interactively or pre-definedly impose a priority order over rewards in a DeepSeaTreasure v1 benchmark presented by Cassimon et al., producing policies resulting in the user's preferred outcome.
+The project is a code implementation for the TCML paper "Conciliator steering: Imposing user preference in MORL decision-making problems". The code enables the user to interactively or pre-definedly impose a priority weighting over rewards in a DeepSeaTreasure v1 benchmark presented by Cassimon et al., producing policies resulting in the user's preferred outcome.
 
 ## Getting started
 
@@ -31,5 +31,3 @@ The repository is partiotioned into the following files:
 ## License
 
 Distributed under the MIT License. See `LICENSE.txt` for more information.
-
-## Contact
