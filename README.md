@@ -2,6 +2,8 @@
 
 The project is a code implementation for the TCML paper "Conciliator steering: Imposing user preference in MORL decision-making problems". The code enables the user to interactively or pre-definedly impose a priority weighting over rewards in a DeepSeaTreasure v1 benchmark presented by Cassimon et al., producing policies resulting in the user's preferred outcome.
 
+This paper is an output of the AIforLEssAuto project. [If you wish to see other outputs of the project, check out this repository](https://github.com/helsinki-sda-group/AIforLEssAuto).
+
 ## Getting started
 
 ### Prerequisites
